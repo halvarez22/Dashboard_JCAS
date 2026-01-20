@@ -1,0 +1,2927 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentación Legal - Proyecto JCAS Chihuahua</title>
+    <style>
+        /* Estilos para impresión PDF */
+        @media print {
+            @page {
+                size: Letter;
+                margin: 2cm 1.5cm;
+            }
+            
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            h1 {
+                page-break-before: always;
+            }
+            
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+            
+            table, pre, .info-box {
+                page-break-inside: avoid;
+            }
+            
+            .cover {
+                page-break-after: always;
+            }
+        }
+        
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 21.59cm; /* Letter width */
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            padding: 2cm 1.5cm;
+        }
+        
+        /* Portada elegante */
+        .cover {
+            height: 100vh;
+            min-height: 27.94cm; /* Letter height */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3cm;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.03) 10px,
+                rgba(255,255,255,0.03) 20px
+            );
+            animation: slide 60s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover h1 {
+            font-size: 42pt;
+            font-weight: 800;
+            margin-bottom: 0.5cm;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            line-height: 1.2;
+            border-bottom: none;
+            page-break-before: avoid;
+        }
+        
+        .cover h2 {
+            font-size: 22pt;
+            font-weight: 300;
+            margin: 1cm 0;
+            border-left: none;
+            padding-left: 0;
+            opacity: 0.95;
+        }
+        
+        .cover .subtitle {
+            font-size: 16pt;
+            font-weight: 300;
+            margin: 2cm 0;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .cover .entity {
+            font-size: 20pt;
+            font-weight: 700;
+            margin-top: 3cm;
+            padding: 0.5cm 1.5cm;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .cover .date {
+            font-size: 14pt;
+            margin-top: 1.5cm;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        .cover .version {
+            position: absolute;
+            bottom: 1cm;
+            right: 2cm;
+            font-size: 10pt;
+            opacity: 0.6;
+        }
+        
+        /* Botón de impresión (solo en pantalla) */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 14pt;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(118, 75, 162, 0.5);
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+        
+        /* Títulos */
+        h1 {
+            font-size: 24pt;
+            color: #2c3e50;
+            font-weight: 700;
+            margin: 1.5cm 0 0.8cm 0;
+            padding-bottom: 0.4cm;
+            border-bottom: 4px solid #667eea;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 18pt;
+            color: #34495e;
+            font-weight: 600;
+            margin: 1cm 0 0.5cm 0;
+            padding-left: 0.4cm;
+            border-left: 6px solid #667eea;
+        }
+        
+        h3 {
+            font-size: 14pt;
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0.8cm 0 0.4cm 0;
+        }
+        
+        h4 {
+            font-size: 12pt;
+            color: #667eea;
+            font-weight: 600;
+            margin: 0.6cm 0 0.3cm 0;
+        }
+        
+        /* Párrafos */
+        p {
+            margin: 0.5cm 0;
+            text-align: justify;
+            hyphens: auto;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 0.5cm 0 0.5cm 1cm;
+        }
+        
+        li {
+            margin: 0.3cm 0;
+            line-height: 1.6;
+        }
+        
+        /* Tablas profesionales */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1cm 0;
+            font-size: 10pt;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 0.5cm;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 9pt;
+        }
+        
+        td {
+            padding: 0.4cm;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr {
+            transition: background-color 0.2s;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tbody tr:hover {
+            background-color: #e8f4f8;
+        }
+        
+        /* Bloques de código */
+        pre {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ecf0f1;
+            border-radius: 8px;
+            padding: 0.7cm;
+            margin: 0.7cm 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 9pt;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-left: 5px solid #667eea;
+        }
+        
+        code {
+            background-color: #f1f3f5;
+            color: #e74c3c;
+            padding: 0.1cm 0.3cm;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 9.5pt;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        /* Cajas de información */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 6px solid #2196f3;
+            padding: 0.7cm;
+            margin: 0.8cm 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
+        }
+        
+        /* Resaltados */
+        strong {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        em {
+            color: #667eea;
+            font-style: italic;
+        }
+        
+        /* Líneas horizontales */
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 1.5cm 0;
+            border-radius: 2px;
+        }
+        
+        /* Checkmarks y símbolos */
+        li:contains('✅')::marker {
+            color: #27ae60;
+        }
+        
+        li:contains('❌')::marker {
+            color: #e74c3c;
+        }
+        
+        /* Enlaces */
+        a {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px dotted #667eea;
+            transition: all 0.2s;
+        }
+        
+        a:hover {
+            color: #764ba2;
+            border-bottom: 1px solid #764ba2;
+        }
+        
+        /* Mejoras visuales */
+        blockquote {
+            border-left: 5px solid #667eea;
+            padding-left: 1cm;
+            margin: 0.7cm 0;
+            font-style: italic;
+            color: #555;
+            background: #f8f9fa;
+            padding: 0.5cm 1cm;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Footer para cada página impresa */
+        @media print {
+            .page-footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 9pt;
+                color: #7f8c8d;
+                padding: 0.3cm 0;
+                border-top: 1px solid #ecf0f1;
+            }
+        }
+        
+        /* Animaciones suaves para vista en pantalla */
+        @media screen {
+            h1, h2, h3, table, .info-box {
+                animation: fadeIn 0.5s ease-in;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    
+    <div class="container">
+        <!-- Portada Ejecutiva -->
+        <div class="cover">
+            <div class="cover-content">
+                <h1>FUNDAMENTACIÓN LEGAL<br/>PROYECTO DE INVERSIÓN PÚBLICA</h1>
+                <h2>Sistema de Generación de Energía Solar Fotovoltaica<br/>con Almacenamiento en Baterías (BESS)</h2>
+                <div class="subtitle">
+                    <strong>Infraestructura Hidráulica Sustentable</strong><br/>
+                    150.24 MWp + 109.2 MWh BESS<br/>
+                    Inversión: $2,616 Millones MXN<br/>
+                    <br/>
+                    <em>Ahorro Proyectado: $11,055 Millones (15 años)</em><br/>
+                    <em>TIR: 18.5% | VPN: $443.1 Millones</em>
+                </div>
+                <div class="entity">
+                    JUNTA CENTRAL DE AGUAS Y SANEAMIENTO<br/>
+                    ESTADO DE CHIHUAHUA
+                </div>
+                <div class="date">
+                    20 de Enero de 2026
+                </div>
+                <div class="version">
+                    Versión 1.0 | Documento Ejecutivo
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contenido del documento -->
+        <div class="content">
+            <h1 id="fundamentacion-legal">FUNDAMENTACIÓN LEGAL</h1>
+
+<h1 id="proyecto-de-inversion-publica-en-infraestructura-hidraulica">PROYECTO DE INVERSIÓN PÚBLICA EN INFRAESTRUCTURA HIDRÁULICA</h1>
+
+<h1 id="junta-central-de-aguas-y-saneamiento-jcas-chihuahua">JUNTA CENTRAL DE AGUAS Y SANEAMIENTO (JCAS) - CHIHUAHUA</h1>
+
+<hr />
+
+<h2 id="indice">ÍNDICE</h2>
+
+<ol>
+<li><strong>MARCO CONSTITUCIONAL Y NORMATIVO GENERAL</strong></li>
+<li><strong>NATURALEZA JURÍDICA Y COMPETENCIA DE LA JCAS</strong></li>
+<li><strong>FUNDAMENTACIÓN PARA LA INVERSIÓN PÚBLICA</strong></li>
+<li><strong>MARCO NORMATIVO PARA LICITACIÓN Y CONTRATACIÓN</strong></li>
+<li><strong>NORMATIVA TÉCNICA Y AMBIENTAL</strong></li>
+<li><strong>PROCEDIMIENTOS DE ADQUISICIÓN Y CONTRATACIÓN</strong></li>
+<li><strong>EJECUCIÓN Y SUPERVISIÓN DE OBRAS</strong></li>
+<li><strong>ESQUEMAS DE FINANCIAMIENTO</strong></li>
+<li><strong>CUMPLIMIENTO REGULATORIO Y CONTROL</strong></li>
+<li><strong>ANEXOS NORMATIVOS</strong></li>
+</ol>
+
+<hr />
+
+<h2 id="1-marco-constitucional-y-normativo-general">1. MARCO CONSTITUCIONAL Y NORMATIVO GENERAL</h2>
+
+<h3 id="11-fundamento-constitucional">1.1 Fundamento Constitucional</h3>
+
+<p><strong>Constitución Política de los Estados Unidos Mexicanos:</strong></p>
+
+<ul>
+<li><p><strong>Artículo 115, Fracción III, inciso a)</strong>: Establece que los Municipios tendrán a su cargo la función de agua potable, drenaje, alcantarillado, tratamiento y disposición de aguas residuales.</p></li>
+<li><p><strong>Artículo 27</strong>: Define el dominio originario de la Nación sobre las aguas y su regulación para el aprovechamiento equitativo.</p></li>
+<li><p><strong>Artículo 134</strong>: Establece los principios de administración de recursos económicos de manera eficiente, eficaz, con economía, transparencia y honradez para satisfacer objetivos a los que estén destinados.</p></li>
+</ul>
+
+<h3 id="12-marco-estatal">1.2 Marco Estatal</h3>
+
+<p><strong>Constitución Política del Estado de Chihuahua:</strong></p>
+
+<ul>
+<li><strong>Artículo correspondiente a Servicios Públicos Municipales</strong>: Reconoce la prestación de servicios de agua potable y alcantarillado como función municipal esencial.</li>
+</ul>
+
+<h3 id="13-leyes-federales-aplicables">1.3 Leyes Federales Aplicables</h3>
+
+<ul>
+<li><strong>Ley de Aguas Nacionales</strong> y su Reglamento</li>
+<li><strong>Ley General del Equilibrio Ecológico y Protección al Ambiente</strong></li>
+<li><strong>Ley Federal de Responsabilidades Administrativas de los Servidores Públicos</strong></li>
+<li><strong>Ley de Planeación</strong></li>
+</ul>
+
+<h3 id="14-leyes-estatales-aplicables">1.4 Leyes Estatales Aplicables</h3>
+
+<ul>
+<li><strong>Ley del Agua del Estado de Chihuahua</strong></li>
+<li><strong>Ley de Obras Públicas y Servicios Relacionados con las Mismas del Estado de Chihuahua</strong></li>
+<li><strong>Ley de Adquisiciones, Arrendamientos y Contratación de Servicios del Estado de Chihuahua</strong></li>
+<li><strong>Ley de Asociaciones Público Privadas del Estado de Chihuahua</strong></li>
+<li><strong>Código Municipal del Estado de Chihuahua</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="2-naturaleza-juridica-y-competencia-de-la-jcas">2. NATURALEZA JURÍDICA Y COMPETENCIA DE LA JCAS</h2>
+
+<h3 id="21-antecedentes-historicos-y-evolucion-normativa">2.1 Antecedentes Históricos y Evolución Normativa</h3>
+
+<p>La Junta Central de Aguas y Saneamiento del Estado de Chihuahua tiene su origen en diversos ordenamientos que han configurado su personalidad jurídica actual:</p>
+
+<p><strong>Cronología Normativa:</strong></p>
+
+<ol>
+<li><p><strong>17 de abril de 1937</strong>: Se expide el Reglamento de Agua y Drenaje de la Ciudad de Chihuahua, primer antecedente regulatorio local.</p></li>
+<li><p><strong>22 de agosto de 1942</strong>: Se constituye la Junta Central de Aguas y Saneamiento del Estado y su reglamento, estableciendo las bases de su organización.</p></li>
+<li><p><strong>26 de abril de 1950</strong>: Se publica el Código Municipal incluyendo la integración de la Junta Central.</p></li>
+<li><p><strong>5 de noviembre de 1980</strong>: Se publica la transferencia de los sistemas de agua potable y alcantarillado a los Estados y Ayuntamientos, consolidando la descentralización del servicio.</p></li>
+<li><p><strong>3 de octubre de 1987</strong>: Se expide el Reglamento de las Juntas Rurales de Agua Potable, extendiendo el marco regulatorio a comunidades rurales.</p></li>
+<li><p><strong>28 de marzo de 2015</strong>: Creación del Organismo Junta Municipal de Agua y Saneamiento de Aquiles Serdán, evidenciando la evolución del modelo institucional.</p></li>
+<li><p><strong>Acuerdo 125</strong>: Creación del Comité del Patrimonio Inmobiliario de la JCAS.</p></li>
+<li><p><strong>2023</strong>: Manual de Integración del Comité de Obra Pública JCAS vigente.</p></li>
+</ol>
+
+<h3 id="22-personalidad-juridica">2.2 Personalidad Jurídica</h3>
+
+<p>La JCAS es un <strong>Organismo Público Descentralizado</strong> con:</p>
+
+<ul>
+<li><strong>Personalidad jurídica propia</strong></li>
+<li><strong>Patrimonio propio</strong></li>
+<li><strong>Autonomía técnica y de gestión</strong></li>
+<li><strong>Capacidad para contratar</strong></li>
+<li><strong>Facultad para administrar recursos públicos</strong></li>
+</ul>
+
+<h3 id="23-objeto-y-atribuciones">2.3 Objeto y Atribuciones</h3>
+
+<p><strong>Objeto Principal:</strong><br />
+Prestar los servicios públicos de:<br />
+- Agua potable<br />
+- Drenaje sanitario<br />
+- Alcantarillado pluvial<br />
+- Tratamiento de aguas residuales<br />
+- Saneamiento<br />
+- Disposición final de aguas tratadas</p>
+
+<p><strong>Atribuciones Relevantes para Inversión Pública:</strong></p>
+
+<p>a) Planear, proyectar, construir, ampliar, rehabilitar y operar la infraestructura hidráulica y sanitaria.</p>
+
+<p>b) Celebrar contratos de obra pública, adquisiciones y servicios relacionados.</p>
+
+<p>c) Administrar y disponer de su patrimonio.</p>
+
+<p>d) Obtener financiamiento para proyectos de inversión.</p>
+
+<p>e) Establecer y recaudar tarifas por servicios.</p>
+
+<p>f) Promover el uso eficiente y sustentable del agua.</p>
+
+<p>g) Dar cumplimiento a la normatividad ambiental vigente.</p>
+
+<h3 id="24-comite-de-obra-publica-jcas">2.4 Comité de Obra Pública JCAS</h3>
+
+<p>Según el <strong>Manual de Integración del Comité de Obra Pública JCAS - 2023</strong>:</p>
+
+<p><strong>Integración:</strong><br />
+- Director General (Presidente)<br />
+- Director de Obras<br />
+- Director de Administración y Finanzas<br />
+- Director Jurídico<br />
+- Contralor Interno<br />
+- Vocales técnicos según corresponda</p>
+
+<p><strong>Atribuciones:</strong><br />
+- Autorizar programas anuales de obra pública<br />
+- Aprobar bases de licitación<br />
+- Dictaminar adjudicaciones<br />
+- Supervisar cumplimiento de contratos<br />
+- Autorizar modificaciones contractuales<br />
+- Aprobar finiquitos de obra</p>
+
+<h3 id="25-comite-del-patrimonio-inmobiliario">2.5 Comité del Patrimonio Inmobiliario</h3>
+
+<p>Según <strong>Acuerdo 125</strong>:<br />
+- Administración de bienes inmuebles<br />
+- Autorización de adquisiciones y enajenaciones<br />
+- Validación de avalúos<br />
+- Registro y control patrimonial</p>
+
+<hr />
+
+<h2 id="3-fundamentacion-para-la-inversion-publica">3. FUNDAMENTACIÓN PARA LA INVERSIÓN PÚBLICA</h2>
+
+<h3 id="31-ley-del-agua-del-estado-de-chihuahua">3.1 Ley del Agua del Estado de Chihuahua</h3>
+
+<p><strong>Disposiciones Aplicables:</strong></p>
+
+<p>La Ley del Agua establece el marco para la gestión integral del recurso hídrico en el Estado, incluyendo:</p>
+
+<ul>
+<li><p><strong>Obligación de los organismos operadores</strong> de mantener, ampliar y modernizar la infraestructura de agua potable y saneamiento.</p></li>
+<li><p><strong>Programas de inversión</strong> alineados con el Plan Estatal Hídrico.</p></li>
+<li><p><strong>Sustentabilidad financiera</strong> mediante tarifas, subsidios y financiamiento.</p></li>
+<li><p><strong>Cumplimiento de normas de calidad</strong> del agua y tratamiento de aguas residuales.</p></li>
+</ul>
+
+<h3 id="32-justificacion-tecnica">3.2 Justificación Técnica</h3>
+
+<p>Todo proyecto de inversión pública en infraestructura hidráulica debe fundamentarse en:</p>
+
+<p><strong>a) Estudios de Factibilidad:</strong><br />
+- Demanda actual y proyectada<br />
+- Capacidad instalada vs. requerimientos<br />
+- Análisis de alternativas técnicas<br />
+- Evaluación costo-beneficio<br />
+- Impacto ambiental<br />
+- Sustentabilidad operativa</p>
+
+<p><strong>b) Diagnóstico de Necesidades:</strong><br />
+- Déficit de cobertura<br />
+- Obsolescencia de infraestructura<br />
+- Incumplimiento de normas ambientales (NOM-001-SEMARNAT-2021)<br />
+- Pérdidas técnicas y comerciales<br />
+- Calidad del servicio<br />
+- Riesgos sanitarios y ambientales</p>
+
+<p><strong>c) Alineación con Planes y Programas:</strong><br />
+- Plan Estatal de Desarrollo<br />
+- Plan Municipal de Desarrollo<br />
+- Programa Estatal Hídrico<br />
+- Programas Sectoriales de Agua y Saneamiento</p>
+
+<h3 id="33-datos-tecnicos-del-proyecto-jcas-chihuahua">3.3 Datos Técnicos del Proyecto JCAS Chihuahua</h3>
+
+<p>Con base en los estudios técnicos realizados ("Área y energía para JCAS Chihuahua vs1.2"), se presenta el siguiente <strong>diagnóstico operativo de las Juntas Municipales de Agua y Saneamiento del Estado de Chihuahua</strong>:</p>
+
+<h4 id="331-diagnostico-operativo-actual">3.3.1 Diagnóstico Operativo Actual</h4>
+
+<p><strong>Organismos Operadores Analizados:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>JMAS</th>
+  <th>Población Atendida</th>
+  <th>Volumen M³/año</th>
+  <th>Volumen M³/día</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Juárez</strong></td>
+  <td>Mayor</td>
+  <td>184,640,040</td>
+  <td>505,863</td>
+</tr>
+<tr>
+  <td><strong>Chihuahua</strong></td>
+  <td>Mayor</td>
+  <td>131,682,611</td>
+  <td>360,774</td>
+</tr>
+<tr>
+  <td><strong>Cuauhtémoc</strong></td>
+  <td>Intermedio</td>
+  <td>18,130,617</td>
+  <td>49,673</td>
+</tr>
+<tr>
+  <td><strong>Parral</strong></td>
+  <td>Intermedio</td>
+  <td>12,121,567</td>
+  <td>33,210</td>
+</tr>
+<tr>
+  <td><strong>TOTAL ESTATAL</strong></td>
+  <td>-</td>
+  <td><strong>346,574,835</strong></td>
+  <td><strong>949,520</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fuente:</strong> Análisis operativo JCAS 2024-2025</p>
+
+<h4 id="332-consumo-energetico-y-costos-operativos">3.3.2 Consumo Energético y Costos Operativos</h4>
+
+<p><strong>Problema Identificado: Alto Costo de Energía Eléctrica</strong></p>
+
+<p>El consumo energético para bombeo, tratamiento y distribución de agua representa uno de los principales costos operativos:</p>
+
+<table>
+<thead>
+<tr>
+  <th>JMAS</th>
+  <th>kWh/año</th>
+  <th>kWh/día</th>
+  <th>Costo Anual (MXN)</th>
+  <th>Costo Diario (MXN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Juárez</strong></td>
+  <td>138,764,540</td>
+  <td>380,177</td>
+  <td>$354,223,007</td>
+  <td>$970,474</td>
+</tr>
+<tr>
+  <td><strong>Chihuahua</strong></td>
+  <td>130,299,441</td>
+  <td>356,985</td>
+  <td>$307,549,929</td>
+  <td>$842,603</td>
+</tr>
+<tr>
+  <td><strong>Cuauhtémoc</strong></td>
+  <td>29,347,536</td>
+  <td>80,404</td>
+  <td>$77,833,014</td>
+  <td>$213,241</td>
+</tr>
+<tr>
+  <td><strong>Parral</strong></td>
+  <td>20,504,891</td>
+  <td>56,178</td>
+  <td>$53,120,957</td>
+  <td>$145,537</td>
+</tr>
+<tr>
+  <td><strong>TOTAL</strong></td>
+  <td><strong>318,916,408</strong></td>
+  <td><strong>873,744</strong></td>
+  <td><strong>$792,726,907</strong></td>
+  <td><strong>$2,171,855</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Hallazgos Críticos:</strong></p>
+
+<ol>
+<li><strong>Gasto energético anual:</strong> $792.7 millones de pesos MXN</li>
+<li><strong>Gasto energético diario:</strong> $2.17 millones de pesos MXN</li>
+<li><strong>Incremento anual de tarifas CFE:</strong> 6% proyectado</li>
+<li><strong>Presión financiera:</strong> Insostenibilidad a largo plazo sin intervención</li>
+</ol>
+
+<h4 id="333-indicadores-de-eficiencia-energetica">3.3.3 Indicadores de Eficiencia Energética</h4>
+
+<p><strong>Consumo Específico de Energía por M³ de Agua:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>JMAS</th>
+  <th>kWh/M³</th>
+  <th>Clasificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Juárez</td>
+  <td>0.751</td>
+  <td>Eficiente</td>
+</tr>
+<tr>
+  <td>Chihuahua</td>
+  <td>0.989</td>
+  <td>Promedio</td>
+</tr>
+<tr>
+  <td>Cuauhtémoc</td>
+  <td>1.619</td>
+  <td>Alto consumo</td>
+</tr>
+<tr>
+  <td>Parral</td>
+  <td>1.692</td>
+  <td>Alto consumo</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Interpretación:</strong><br />
+- Sistemas con topografía desafiante (Cuauhtémoc, Parral) requieren mayor bombeo<br />
+- Oportunidad de mejora mediante eficiencia energética<br />
+- Necesidad de fuentes de energía alternativas (renovables)</p>
+
+<h3 id="34-propuesta-de-solucion-proyecto-de-energia-renovable">3.4 Propuesta de Solución: Proyecto de Energía Renovable</h3>
+
+<p>Con base en el diagnóstico presentado, se propone un <strong>proyecto integral de generación de energía solar fotovoltaica y almacenamiento en baterías (BESS)</strong> para reducir los costos operativos y garantizar la sostenibilidad de los organismos operadores.</p>
+
+<h4 id="341-dimensionamiento-tecnico-del-proyecto-solar">3.4.1 Dimensionamiento Técnico del Proyecto Solar</h4>
+
+<p><strong>Capacidad Instalada Propuesta por JMAS:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>JMAS</th>
+  <th>Capacidad (MWp)</th>
+  <th>Watts Pico (Wp)</th>
+  <th>Paneles (715Wp)</th>
+  <th>Área Requerida (ha)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Juárez</strong></td>
+  <td>65.37</td>
+  <td>65,372,983</td>
+  <td>91,431</td>
+  <td>76.69</td>
+</tr>
+<tr>
+  <td><strong>Chihuahua</strong></td>
+  <td>61.39</td>
+  <td>61,385,013</td>
+  <td>85,853</td>
+  <td>72.01</td>
+</tr>
+<tr>
+  <td><strong>Cuauhtémoc</strong></td>
+  <td>13.83</td>
+  <td>13,825,837</td>
+  <td>19,337</td>
+  <td>16.22</td>
+</tr>
+<tr>
+  <td><strong>Parral</strong></td>
+  <td>9.66</td>
+  <td>9,660,003</td>
+  <td>13,510</td>
+  <td>11.33</td>
+</tr>
+<tr>
+  <td><strong>TOTAL</strong></td>
+  <td><strong>150.24 MWp</strong></td>
+  <td><strong>150,243,836</strong></td>
+  <td><strong>210,131</strong></td>
+  <td><strong>176.25 ha</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Producción Anual Proyectada:</strong><br />
+- <strong>318,916,408 kWh/año</strong> (equivalente al consumo total actual)<br />
+- <strong>873,744 kWh/día</strong> promedio<br />
+- Factor de planta: ~24.2% (considerando radiación solar de Chihuahua)</p>
+
+<p><strong>Especificaciones Técnicas:</strong><br />
+- Tipo de panel: Monocristalino 715 Wp<br />
+- Configuración: 1,400 paneles por cada 1.001 MWp instalado<br />
+- Sistema de seguimiento: Fijo con inclinación óptima<br />
+- Inversores: String inverters con eficiencia &gt;98%</p>
+
+<h4 id="342-sistema-de-almacenamiento-en-baterias-bess">3.4.2 Sistema de Almacenamiento en Baterías (BESS)</h4>
+
+<p>Para garantizar continuidad operativa durante horas sin sol (noche) y estabilizar la red:</p>
+
+<p><strong>Capacidad de Almacenamiento Requerida (3 horas de operación):</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>JMAS</th>
+  <th>kWh Almacenamiento</th>
+  <th>Contenedores 40' (5 MWh c/u)</th>
+  <th>Inversión BESS (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Juárez</strong></td>
+  <td>47,522</td>
+  <td>10 contenedores</td>
+  <td>$8,078,757</td>
+</tr>
+<tr>
+  <td><strong>Chihuahua</strong></td>
+  <td>44,623</td>
+  <td>9 contenedores</td>
+  <td>$7,585,926</td>
+</tr>
+<tr>
+  <td><strong>Cuauhtémoc</strong></td>
+  <td>10,051</td>
+  <td>3 contenedores</td>
+  <td>$1,708,589</td>
+</tr>
+<tr>
+  <td><strong>Parral</strong></td>
+  <td>7,022</td>
+  <td>2 contenedores</td>
+  <td>$1,193,778</td>
+</tr>
+<tr>
+  <td><strong>TOTAL</strong></td>
+  <td><strong>109,218 kWh</strong></td>
+  <td><strong>24 contenedores</strong></td>
+  <td><strong>$18,567,051</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Especificaciones BESS:</strong><br />
+- Tecnología: Litio-Ferro-Fosfato (LFP) - mayor vida útil y seguridad<br />
+- Capacidad por contenedor: 5,000 kWh (5 MWh)<br />
+- Ciclos de vida: &gt;6,000 ciclos (80% DOD)<br />
+- Tiempo de descarga: 3 horas de operación continua<br />
+- Costo unitario: $850,000 USD por contenedor</p>
+
+<h3 id="35-justificacion-economico-financiera-del-proyecto">3.5 Justificación Económico-Financiera del Proyecto</h3>
+
+<h4 id="351-estructura-de-inversion-capex">3.5.1 Estructura de Inversión (CAPEX)</h4>
+
+<p><strong>Inversión Total del Proyecto:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Concepto</th>
+  <th>Costo (MXN)</th>
+  <th>Costo (USD)</th>
+  <th>% del Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Paneles Solares</strong> (150.24 MWp @ $0.65 USD/Wp)</td>
+  <td>$1,727,809,445</td>
+  <td>$97,624,858</td>
+  <td>83.4%</td>
+</tr>
+<tr>
+  <td><strong>Inversores y Balance de Planta</strong></td>
+  <td>$434,452,361</td>
+  <td>$24,546,215</td>
+  <td>16.6%</td>
+</tr>
+<tr>
+  <td><strong>Sistema BESS</strong> (24 contenedores)</td>
+  <td>$328,636,806</td>
+  <td>$18,567,051</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>Infraestructura Eléctrica</strong></td>
+  <td>$106,344,564</td>
+  <td>$6,009,753</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>Desarrollo y EPC</strong></td>
+  <td>$70,800,000</td>
+  <td>$4,000,000</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>TOTAL CAPEX</strong></td>
+  <td><strong>$2,616,048,925</strong></td>
+  <td><strong>$147,776,751</strong></td>
+  <td>100%</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Premisas Financieras:</strong><br />
+- Tipo de cambio: $17.70 MXN/USD<br />
+- Costo paneles: $0.65 USD/Wp<br />
+- Costo venta energía: $0.82 USD/Wp (margen 26%)<br />
+- Margen obra: Incluido en EPC</p>
+
+<h4 id="352-estructura-de-financiamiento">3.5.2 Estructura de Financiamiento</h4>
+
+<p><strong>Esquema Propuesto:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Fuente</th>
+  <th>Monto (MXN)</th>
+  <th>Monto (USD)</th>
+  <th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Capital Propio</strong> (JMAS + Gobierno Estatal)</td>
+  <td>$784,814,678</td>
+  <td>$44,333,025</td>
+  <td>30%</td>
+</tr>
+<tr>
+  <td><strong>Deuda Bancaria</strong> (BANOBRAS/Banca Comercial)</td>
+  <td>$1,831,234,248</td>
+  <td>$103,443,725</td>
+  <td>70%</td>
+</tr>
+<tr>
+  <td><strong>TOTAL</strong></td>
+  <td><strong>$2,616,048,925</strong></td>
+  <td><strong>$147,776,751</strong></td>
+  <td>100%</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Condiciones de Financiamiento:</strong><br />
+- Plazo: 15 años<br />
+- Tasa de interés: 11% anual (TIIE + spread)<br />
+  - TIIE: 7.3646%<br />
+  - Spread bancario: 3.6354%<br />
+- Periodo de gracia: No aplica<br />
+- Amortización: Mensual</p>
+
+<h4 id="353-analisis-financiero-y-viabilidad">3.5.3 Análisis Financiero y Viabilidad</h4>
+
+<p><strong>Ingresos Proyectados (Ahorro en Facturación Eléctrica):</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Año</th>
+  <th>Ahorro Anual (MXN)</th>
+  <th>Ahorro Acumulado (MXN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Año 1</td>
+  <td>$36,035,752</td>
+  <td>$36,035,752</td>
+</tr>
+<tr>
+  <td>Año 5</td>
+  <td>$40,558,557</td>
+  <td>$235,691,865</td>
+</tr>
+<tr>
+  <td>Año 10</td>
+  <td>$47,018,483</td>
+  <td>$322,939,986</td>
+</tr>
+<tr>
+  <td>Año 15</td>
+  <td>$54,507,309</td>
+  <td>$443,122,699</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Nota:</strong> Considera incremento anual de 6% en tarifas CFE</p>
+
+<p><strong>Egresos Anuales:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Concepto</th>
+  <th>Año 1 (MXN)</th>
+  <th>Promedio Anual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Intereses de deuda</strong></td>
+  <td>$11,378,810</td>
+  <td>Decreciente</td>
+</tr>
+<tr>
+  <td><strong>Amortización de capital</strong></td>
+  <td>$6,896,248</td>
+  <td>Constante</td>
+</tr>
+<tr>
+  <td><strong>OPEX</strong> (2.5% del CAPEX)</td>
+  <td>$3,694,419</td>
+  <td>Creciente 3%</td>
+</tr>
+<tr>
+  <td><strong>TOTAL Egresos</strong></td>
+  <td>$21,969,477</td>
+  <td>-</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Margen Operativo:</strong><br />
+- <strong>Año 1:</strong> $14,066,275 (39% margen)<br />
+- <strong>Año 5:</strong> $21,159,747 (52% margen)<br />
+- <strong>Año 15:</strong> $41,264,333 (76% margen)</p>
+
+<h4 id="354-indicadores-financieros">3.5.4 Indicadores Financieros</h4>
+
+<p><strong>Rentabilidad del Proyecto:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Indicador</th>
+  <th>Valor</th>
+  <th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>TIR (Tasa Interna de Retorno)</strong></td>
+  <td>18.5% anual</td>
+  <td>Muy atractiva</td>
+</tr>
+<tr>
+  <td><strong>VPN (Valor Presente Neto) @ 11%</strong></td>
+  <td>$443,122,699 MXN</td>
+  <td>Positivo - Viable</td>
+</tr>
+<tr>
+  <td><strong>Periodo de Recuperación</strong></td>
+  <td>7.2 años</td>
+  <td>Aceptable</td>
+</tr>
+<tr>
+  <td><strong>Relación Beneficio/Costo</strong></td>
+  <td>1.69</td>
+  <td>Rentable</td>
+</tr>
+<tr>
+  <td><strong>ROI (Return on Investment)</strong></td>
+  <td>169% en 15 años</td>
+  <td>Excelente</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Análisis de Sensibilidad:</strong><br />
+- Reducción de insolación 10% → TIR: 15.2% (Sigue viable)<br />
+- Incremento CAPEX 15% → TIR: 14.8% (Sigue viable)<br />
+- Reducción tarifa CFE 20% → TIR: 12.1% (Mínima viabilidad)</p>
+
+<h4 id="355-beneficio-economico-neto">3.5.5 Beneficio Económico Neto</h4>
+
+<p><strong>Ahorro Acumulado a 15 años:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Concepto</th>
+  <th>Monto (MXN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Ingresos totales</strong> (ahorro energético)</td>
+  <td>$634,953,282</td>
+</tr>
+<tr>
+  <td><strong>(-) Egresos totales</strong> (deuda + OPEX)</td>
+  <td>$191,830,583</td>
+</tr>
+<tr>
+  <td><strong>(-) Inversión inicial</strong> (capital 30%)</td>
+  <td>$784,814,678</td>
+</tr>
+<tr>
+  <td><strong>UTILIDAD NETA ACUMULADA</strong></td>
+  <td><strong>$443,122,699</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Comparativo Sin Proyecto vs. Con Proyecto:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Escenario</th>
+  <th>Gasto Energético 15 años (MXN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Sin Proyecto</strong> (pago a CFE)</td>
+  <td>$13,863,274,941</td>
+</tr>
+<tr>
+  <td><strong>Con Proyecto</strong> (CAPEX + OPEX + Deuda)</td>
+  <td>$2,808,178,925</td>
+</tr>
+<tr>
+  <td><strong>AHORRO NETO</strong></td>
+  <td><strong>$11,055,096,016</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="36-justificacion-social-y-ambiental">3.6 Justificación Social y Ambiental</h3>
+
+<p><strong>Beneficios Sociales:</strong><br />
+- Ampliación de cobertura a comunidades vulnerables con costos operativos reducidos<br />
+- Mejora en la calidad de vida mediante servicios más confiables<br />
+- Reducción de enfermedades hídricas por mayor continuidad del servicio<br />
+- Garantía del derecho humano al agua (Art. 4° Constitucional)<br />
+- <strong>Tarifas estables</strong> sin incrementos por costos energéticos</p>
+
+<p><strong>Beneficios Ambientales:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Indicador Ambiental</th>
+  <th>Valor Anual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Reducción emisiones CO₂</strong></td>
+  <td>~159,458 toneladas/año</td>
+</tr>
+<tr>
+  <td><strong>Equivalente árboles plantados</strong></td>
+  <td>~7.3 millones de árboles</td>
+</tr>
+<tr>
+  <td><strong>Energía limpia generada</strong></td>
+  <td>318,916 MWh/año</td>
+</tr>
+<tr>
+  <td><strong>% Energía renovable</strong></td>
+  <td>100% de consumo operativo</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>Reducción de contaminación de cuerpos de agua (mejor tratamiento)</li>
+<li>Cumplimiento de normas ambientales (NOM-001-SEMARNAT-2021)</li>
+<li>Conservación de acuíferos</li>
+<li>Uso eficiente del recurso hídrico</li>
+<li>Economía circular (reúso de agua tratada)</li>
+<li><strong>Contribución a metas climáticas</strong> de México (NDC)</li>
+</ul>
+
+<h3 id="37-sustentabilidad-y-alineacion-con-objetivos-estrategicos">3.7 Sustentabilidad y Alineación con Objetivos Estratégicos</h3>
+
+<p><strong>Alineación con Objetivos de Desarrollo Sostenible (ODS):</strong></p>
+
+<ul>
+<li><strong>ODS 6:</strong> Agua limpia y saneamiento</li>
+<li><strong>ODS 7:</strong> Energía asequible y no contaminante</li>
+<li><strong>ODS 9:</strong> Industria, innovación e infraestructura</li>
+<li><strong>ODS 11:</strong> Ciudades y comunidades sostenibles</li>
+<li><strong>ODS 13:</strong> Acción por el clima</li>
+</ul>
+
+<p><strong>Alineación con Políticas Públicas:</strong></p>
+
+<ul>
+<li>Plan Nacional de Desarrollo 2024-2030</li>
+<li>Estrategia de Transición Energética</li>
+<li>Programa Nacional Hídrico</li>
+<li>Plan Estatal de Desarrollo de Chihuahua</li>
+<li>Compromisos internacionales de México (Acuerdo de París)</li>
+</ul>
+
+<hr />
+
+<h2 id="4-marco-normativo-para-licitacion-y-contratacion">4. MARCO NORMATIVO PARA LICITACIÓN Y CONTRATACIÓN</h2>
+
+<h3 id="41-ley-de-obras-publicas-y-servicios-relacionados-con-las-mismas-del-estado-de-chihuahua">4.1 Ley de Obras Públicas y Servicios Relacionados con las Mismas del Estado de Chihuahua</h3>
+
+<p><strong>Objeto:</strong><br />
+Regular la planeación, programación, presupuestación, contratación, gasto, ejecución y control de obras públicas, así como los servicios relacionados con las mismas.</p>
+
+<p><strong>Ámbito de Aplicación:</strong><br />
+Aplica a las dependencias y entidades de la administración pública estatal y municipal, <strong>incluyendo organismos descentralizados como la JCAS</strong>.</p>
+
+<p><strong>Principios Rectores (Fundamentados en Art. 134 Constitucional):</strong><br />
+- <strong>Economía</strong>: Obtener las mejores condiciones en cuanto a precio, calidad, financiamiento, oportunidad y demás circunstancias pertinentes.<br />
+- <strong>Eficacia</strong>: Cumplimiento de objetivos y metas programadas con base en indicadores de desempeño.<br />
+- <strong>Eficiencia</strong>: Logro de metas con el menor costo y en el menor tiempo posible.<br />
+- <strong>Imparcialidad</strong>: Sin favoritismos ni discrecionalidad indebida.<br />
+- <strong>Honradez</strong>: Conducta íntegra de los servidores públicos.<br />
+- <strong>Transparencia</strong>: Publicidad y rendición de cuentas.</p>
+
+<h3 id="42-tipos-de-contratacion">4.2 Tipos de Contratación</h3>
+
+<p>La Ley establece los siguientes procedimientos:</p>
+
+<h4 id="421-licitacion-publica">4.2.1 Licitación Pública</h4>
+
+<p><strong>Procedencia:</strong><br />
+Es la <strong>regla general</strong> para toda contratación de obra pública que rebase los montos mínimos establecidos.</p>
+
+<p><strong>Características:</strong><br />
+- Convocatoria pública<br />
+- Bases de licitación disponibles<br />
+- Junta de aclaraciones<br />
+- Presentación y apertura de propuestas en acto público<br />
+- Evaluación técnica y económica<br />
+- Fallo público<br />
+- Firma de contrato</p>
+
+<p><strong>Publicación:</strong><br />
+- Plataforma CompraNet (nivel federal) o sistema estatal equivalente<br />
+- Página web del organismo<br />
+- Diario Oficial del Estado<br />
+- Periódico de mayor circulación (cuando proceda)</p>
+
+<h4 id="422-invitacion-a-cuando-menos-tres-personas">4.2.2 Invitación a Cuando Menos Tres Personas</h4>
+
+<p><strong>Procedencia (según la Ley):</strong><br />
+- Cuando el monto no exceda el equivalente establecido en el presupuesto<br />
+- Obras de características específicas<br />
+- Cuando existan razones justificadas (escasez, urgencia, etc.)<br />
+- Dictamen del Comité de Obra Pública</p>
+
+<p><strong>Proceso:</strong><br />
+- Invitación a mínimo tres contratistas registrados<br />
+- Entrega de bases<br />
+- Presentación de propuestas<br />
+- Evaluación y adjudicación<br />
+- Formalización de contrato</p>
+
+<h4 id="423-adjudicacion-directa">4.2.3 Adjudicación Directa</h4>
+
+<p><strong>Procedencia (casos excepcionales):</strong><br />
+- Montos menores a los establecidos<br />
+- Circunstancias de emergencia (desastres naturales, contingencias sanitarias)<br />
+- Imposibilidad de realizar licitación por circunstancias especiales<br />
+- Obra ejecutada bajo licencia exclusiva<br />
+- Servicios profesionales especializados<br />
+- Dictamen fundado y motivado del Comité de Obra Pública</p>
+
+<p><strong>Requisitos:</strong><br />
+- Justificación técnica y legal<br />
+- Investigación de mercado (mínimo tres cotizaciones cuando sea posible)<br />
+- Aprobación del Comité de Obra Pública<br />
+- Autorización superior<br />
+- Formalización mediante contrato</p>
+
+<h3 id="43-reglamento-de-la-ley-de-obras-publicas">4.3 Reglamento de la Ley de Obras Públicas</h3>
+
+<p>El Reglamento desarrolla los procedimientos establecidos en la Ley, detallando:</p>
+
+<ul>
+<li>Requisitos de las bases de licitación</li>
+<li>Criterios de evaluación</li>
+<li>Documentación contractual</li>
+<li>Garantías y fianzas</li>
+<li>Anticipos y pagos progresivos</li>
+<li>Modificaciones contractuales</li>
+<li>Penas convencionales y deducciones</li>
+<li>Terminación anticipada y rescisión</li>
+<li>Recepción y finiquito de obras</li>
+</ul>
+
+<h3 id="44-padron-de-contratistas">4.4 Padrón de Contratistas</h3>
+
+<p><strong>Registro Estatal de Contratistas:</strong><br />
+Solo pueden participar en licitaciones y contratos las personas físicas o morales inscritas en el padrón, que cumplan:</p>
+
+<ul>
+<li>Capacidad técnica y experiencia</li>
+<li>Solvencia económica</li>
+<li>Equipo y maquinaria adecuados</li>
+<li>Cumplimiento fiscal</li>
+<li>No inhabilitación</li>
+</ul>
+
+<hr />
+
+<h2 id="5-normativa-tecnica-y-ambiental">5. NORMATIVA TÉCNICA Y AMBIENTAL</h2>
+
+<h3 id="51-nom-001-semarnat-2021">5.1 NOM-001-SEMARNAT-2021</h3>
+
+<p><strong>Norma Oficial Mexicana que establece los límites permisibles de contaminantes en las descargas de aguas residuales en cuerpos receptores propiedad de la nación.</strong></p>
+
+<p><strong>Objeto:</strong><br />
+Proteger la calidad de las aguas nacionales mediante el control de las descargas de aguas residuales.</p>
+
+<p><strong>Aplicabilidad para la JCAS:</strong><br />
+Toda planta de tratamiento de aguas residuales debe cumplir con los límites máximos permisibles de:</p>
+
+<ul>
+<li><strong>Demanda Bioquímica de Oxígeno (DBO5)</strong></li>
+<li><strong>Demanda Química de Oxígeno (DQO)</strong></li>
+<li><strong>Sólidos Suspendidos Totales (SST)</strong></li>
+<li><strong>Grasas y Aceites</strong></li>
+<li><strong>Nitrógeno Total</strong></li>
+<li><strong>Fósforo Total</strong></li>
+<li><strong>Coliformes fecales</strong></li>
+<li><strong>Metales pesados</strong> (arsénico, cadmio, cobre, cromo, mercurio, níquel, plomo, zinc)</li>
+<li><strong>Otros contaminantes específicos</strong></li>
+</ul>
+
+<p><strong>Obligaciones:</strong></p>
+
+<p>a) <strong>Monitoreo y Análisis:</strong><br />
+- Muestreos periódicos conforme a la norma<br />
+- Análisis en laboratorios acreditados<br />
+- Registro de resultados</p>
+
+<p>b) <strong>Reportes:</strong><br />
+- Cédula de Operación Anual (COA) ante SEMARNAT<br />
+- Informes semestrales de cumplimiento<br />
+- Reporte de emergencias ambientales</p>
+
+<p>c) <strong>Infraestructura:</strong><br />
+- Sistemas de tratamiento adecuados para cumplir límites<br />
+- Equipos de medición y control<br />
+- Puntos de muestreo accesibles</p>
+
+<p>d) <strong>Operación y Mantenimiento:</strong><br />
+- Personal capacitado<br />
+- Manuales de operación<br />
+- Bitácoras de operación<br />
+- Programa de mantenimiento preventivo y correctivo</p>
+
+<p><strong>Implicaciones para el Proyecto:</strong></p>
+
+<p>Cualquier proyecto de infraestructura de tratamiento de aguas residuales debe:</p>
+
+<ol>
+<li>Diseñarse para cumplir con los límites de la NOM-001-SEMARNAT-2021</li>
+<li>Considerar ampliaciones futuras y variaciones de carga</li>
+<li>Incluir sistemas de monitoreo automatizado</li>
+<li>Prever laboratorio de análisis o convenios con laboratorios acreditados</li>
+<li>Contemplar capacitación de personal operativo</li>
+</ol>
+
+<h3 id="52-otras-normas-tecnicas-aplicables">5.2 Otras Normas Técnicas Aplicables</h3>
+
+<p><strong>Normas Mexicanas (NMX) y Normas Oficiales (NOM) del sector agua:</strong></p>
+
+<ul>
+<li><strong>NOM-002-SEMARNAT</strong>: Límites para descargas a alcantarillado</li>
+<li><strong>NOM-003-SEMARNAT</strong>: Límites para reúso de aguas tratadas</li>
+<li><strong>NOM-004-SEMARNAT</strong>: Lodos y biosólidos</li>
+<li><strong>NOM-127-SSA1</strong>: Calidad del agua para uso y consumo humano</li>
+<li><strong>NMX-AA</strong>: Serie de normas para análisis de agua</li>
+</ul>
+
+<p><strong>Normas de Construcción:</strong></p>
+
+<ul>
+<li><strong>NOM-008-SCFI</strong>: Sistema General de Unidades de Medida</li>
+<li>Especificaciones técnicas de CFE (instalaciones eléctricas)</li>
+<li>Normas de construcción estatales y municipales aplicables</li>
+</ul>
+
+<h3 id="53-evaluacion-de-impacto-ambiental">5.3 Evaluación de Impacto Ambiental</h3>
+
+<p><strong>Ley General del Equilibrio Ecológico y Protección al Ambiente (LGEEPA):</strong></p>
+
+<p>Según el tipo y magnitud del proyecto, puede requerirse:</p>
+
+<p><strong>a) Manifestación de Impacto Ambiental (MIA):</strong><br />
+- Modalidad Regional (MIA-R) para proyectos de gran escala<br />
+- Modalidad Particular (MIA-P) para proyectos específicos</p>
+
+<p><strong>b) Informe Preventivo:</strong><br />
+Para obras menores que cumplan ciertos criterios</p>
+
+<p><strong>c) Estudio de Riesgo Ambiental:</strong><br />
+Cuando se manejen sustancias peligrosas</p>
+
+<p><strong>Autoridad Competente:</strong><br />
+- SEMARNAT (federal) para proyectos de jurisdicción federal<br />
+- Secretaría de Desarrollo Urbano y Ecología del Estado (estatal) para proyectos de jurisdicción estatal</p>
+
+<p><strong>Contenido Mínimo de la MIA:</strong></p>
+
+<ol>
+<li>Datos generales del proyecto y promovente</li>
+<li>Descripción del proyecto</li>
+<li>Vinculación con ordenamientos jurídicos</li>
+<li>Descripción del sistema ambiental</li>
+<li>Identificación y evaluación de impactos ambientales</li>
+<li>Medidas preventivas y de mitigación</li>
+<li>Pronósticos ambientales</li>
+<li>Programa de vigilancia ambiental</li>
+<li>Conclusiones</li>
+</ol>
+
+<h3 id="54-permisos-y-autorizaciones-ambientales">5.4 Permisos y Autorizaciones Ambientales</h3>
+
+<p><strong>Concesión o Asignación de Aguas Nacionales:</strong><br />
+- Título de concesión otorgado por CONAGUA<br />
+- Volúmenes autorizados de extracción<br />
+- Puntos de descarga autorizados</p>
+
+<p><strong>Permiso de Descarga:</strong><br />
+- Autorización de CONAGUA para descargar aguas residuales tratadas<br />
+- Condiciones particulares de descarga</p>
+
+<p><strong>Licencia Ambiental Única (LAU):</strong><br />
+- Integración de permisos y autorizaciones ambientales<br />
+- Gestión en ventanilla única</p>
+
+<hr />
+
+<h2 id="6-procedimientos-de-adquisicion-y-contratacion">6. PROCEDIMIENTOS DE ADQUISICIÓN Y CONTRATACIÓN</h2>
+
+<h3 id="61-ley-de-adquisiciones-arrendamientos-y-contratacion-de-servicios-del-estado-de-chihuahua">6.1 Ley de Adquisiciones, Arrendamientos y Contratación de Servicios del Estado de Chihuahua</h3>
+
+<p><strong>Aplicabilidad:</strong><br />
+Para la adquisición de bienes muebles, arrendamientos y contratación de servicios que no constituyan obra pública ni servicios relacionados con las mismas.</p>
+
+<p><strong>Ejemplos en Proyectos Hidráulicos:</strong><br />
+- Adquisición de equipo electromecánico (bombas, motores, equipos de control)<br />
+- Mobiliario y equipo de oficina<br />
+- Vehículos<br />
+- Servicios de consultoría<br />
+- Arrendamiento de maquinaria</p>
+
+<h3 id="62-procedimientos-de-adquisicion">6.2 Procedimientos de Adquisición</h3>
+
+<p>Similar a la Ley de Obras Públicas, contempla:</p>
+
+<ol>
+<li><strong>Licitación Pública</strong> (regla general)</li>
+<li><strong>Invitación a Cuando Menos Tres Personas</strong></li>
+<li><strong>Adjudicación Directa</strong> (casos excepcionales)</li>
+</ol>
+
+<h3 id="63-reglamento-de-la-ley-de-adquisiciones">6.3 Reglamento de la Ley de Adquisiciones</h3>
+
+<p>Desarrolla procedimientos específicos:</p>
+
+<ul>
+<li>Requisitos de proveedores</li>
+<li>Garantías de cumplimiento</li>
+<li>Contratos marco</li>
+<li>Consolidación de adquisiciones</li>
+<li>Evaluación de propuestas</li>
+<li>Incumplimiento y sanciones</li>
+</ul>
+
+<h3 id="64-comite-de-adquisiciones">6.4 Comité de Adquisiciones</h3>
+
+<p><strong>Integración y Funciones:</strong><br />
+- Autorizar programas anuales de adquisiciones<br />
+- Aprobar bases de licitación<br />
+- Dictaminar adjudicaciones<br />
+- Aprobar excepciones a licitación pública</p>
+
+<hr />
+
+<h2 id="7-ejecucion-y-supervision-de-obras">7. EJECUCIÓN Y SUPERVISIÓN DE OBRAS</h2>
+
+<h3 id="71-contrato-de-obra-publica">7.1 Contrato de Obra Pública</h3>
+
+<p><strong>Elementos Esenciales:</strong></p>
+
+<p>a) <strong>Partes Contratantes:</strong><br />
+- JCAS (contratante)<br />
+- Contratista adjudicado</p>
+
+<p>b) <strong>Objeto:</strong><br />
+- Descripción detallada de la obra<br />
+- Ubicación y alcances<br />
+- Especificaciones técnicas</p>
+
+<p>c) <strong>Monto y Forma de Pago:</strong><br />
+- Precio alzado, precios unitarios o mixto<br />
+- Anticipos (hasta 30% o según normativa)<br />
+- Estimaciones progresivas<br />
+- Retenciones y garantías</p>
+
+<p>d) <strong>Plazo de Ejecución:</strong><br />
+- Fecha de inicio<br />
+- Plazo de ejecución<br />
+- Programa de obra<br />
+- Entrega de trabajos</p>
+
+<p>e) <strong>Garantías:</strong><br />
+- Cumplimiento del contrato (10% del monto)<br />
+- Anticipo (100% del anticipo otorgado)<br />
+- Vicios ocultos (hasta por 12 meses después de entrega-recepción)<br />
+- Responsabilidad civil</p>
+
+<p>f) <strong>Penas Convencionales:</strong><br />
+- Por atraso en la ejecución<br />
+- Por incumplimiento de obligaciones</p>
+
+<p>g) <strong>Modificaciones:</strong><br />
+- Convenios adicionales<br />
+- Incrementos o decrementos de volúmenes<br />
+- Ajustes de costos</p>
+
+<p>h) <strong>Terminación y Rescisión:</strong><br />
+- Causas de terminación anticipada<br />
+- Procedimiento de rescisión administrativa<br />
+- Consecuencias</p>
+
+<h3 id="72-supervision-y-control-de-obra">7.2 Supervisión y Control de Obra</h3>
+
+<p><strong>Responsables de la Supervisión:</strong></p>
+
+<p>a) <strong>Residente de Obra (por parte de la JCAS):</strong><br />
+- Ingeniero titulado con cédula profesional<br />
+- Representante técnico del organismo<br />
+- Verificación del cumplimiento del proyecto y especificaciones<br />
+- Autorización de estimaciones<br />
+- Bitácora de obra<br />
+- Control de calidad</p>
+
+<p>b) <strong>Superintendente de Construcción (por parte del Contratista):</strong><br />
+- Responsable técnico de la ejecución<br />
+- Coordinación de trabajos<br />
+- Seguimiento al programa<br />
+- Atención a instrucciones del residente</p>
+
+<p>c) <strong>Supervisión Externa (opcional):</strong><br />
+- Empresa de supervisión contratada<br />
+- Verificación independiente<br />
+- Informes técnicos y financieros</p>
+
+<p><strong>Instrumentos de Control:</strong></p>
+
+<ol>
+<li><p><strong>Bitácora de Obra:</strong></p>
+
+<ul>
+<li>Electrónica o física (según normativa vigente)</li>
+<li>Registro diario de eventos relevantes</li>
+<li>Instrucciones y observaciones</li>
+<li>Valor legal probatorio</li>
+</ul></li>
+<li><p><strong>Estimaciones:</strong></p>
+
+<ul>
+<li>Periocidad: semanal, quincenal o mensual</li>
+<li>Generadores de obra</li>
+<li>Números generadores</li>
+<li>Soporte fotográfico</li>
+<li>Aprobación del residente</li>
+<li>Pago dentro de los plazos legales (generalmente 20 días naturales)</li>
+</ul></li>
+<li><p><strong>Pruebas de Calidad:</strong></p>
+
+<ul>
+<li>Laboratorio de materiales</li>
+<li>Pruebas de resistencia (concreto, suelos, etc.)</li>
+<li>Certificados de calidad de equipos</li>
+<li>Pruebas de funcionamiento (hidráulicas, eléctricas, mecánicas)</li>
+</ul></li>
+<li><p><strong>Informes Técnicos:</strong></p>
+
+<ul>
+<li>Avance físico vs. programado</li>
+<li>Avance financiero</li>
+<li>Problemas y soluciones</li>
+<li>Fotografías y evidencias</li>
+</ul></li>
+</ol>
+
+<h3 id="73-recepcion-y-finiquito">7.3 Recepción y Finiquito</h3>
+
+<p><strong>Recepción de Obras:</strong></p>
+
+<p>a) <strong>Entrega-Recepción Física:</strong><br />
+- Acta de entrega-recepción<br />
+- Verificación de cumplimiento total<br />
+- Planos as-built (como construido)<br />
+- Manuales de operación y mantenimiento<br />
+- Garantías de equipos<br />
+- Capacitación de personal operativo</p>
+
+<p>b) <strong>Finiquito:</strong><br />
+- Liquidación de adeudos<br />
+- Devolución de garantías (excepto vicios ocultos)<br />
+- Acta de finiquito<br />
+- Cierre administrativo</p>
+
+<p>c) <strong>Garantía de Vicios Ocultos:</strong><br />
+- Vigencia mínima: 12 meses después de recepción<br />
+- Puede extenderse según tipo de obra<br />
+- Liberación posterior a vencimiento sin reclamaciones</p>
+
+<hr />
+
+<h2 id="8-esquemas-de-financiamiento">8. ESQUEMAS DE FINANCIAMIENTO</h2>
+
+<h3 id="81-fuentes-de-recursos">8.1 Fuentes de Recursos</h3>
+
+<p><strong>8.1.1 Recursos Propios:</strong><br />
+- Ingresos tarifarios<br />
+- Derechos y aprovechamientos<br />
+- Productos financieros<br />
+- Patrimonio propio</p>
+
+<p><strong>8.1.2 Recursos Federales:</strong><br />
+- <strong>APAZU</strong> (Programa de Agua Potable, Drenaje y Tratamiento)<br />
+- <strong>PROAGUA</strong> (Programa de Agua Potable, Alcantarillado y Saneamiento en Zonas Urbanas)<br />
+- Ramo 33 (Aportaciones Federales)<br />
+- Programas sectoriales de CONAGUA</p>
+
+<p><strong>8.1.3 Recursos Estatales:</strong><br />
+- Presupuesto del Estado de Chihuahua<br />
+- Fondos estatales para infraestructura<br />
+- Subsidios y transferencias</p>
+
+<p><strong>8.1.4 Recursos Municipales:</strong><br />
+- Aportaciones del Ayuntamiento<br />
+- Convenios de coordinación</p>
+
+<p><strong>8.1.5 Financiamiento:</strong><br />
+- <strong>Créditos bancarios</strong> (banca de desarrollo o comercial)<br />
+- <strong>BANOBRAS</strong> (Banco Nacional de Obras y Servicios Públicos)<br />
+- <strong>Emisión de deuda pública</strong> (bonos municipales)<br />
+- <strong>Organismos internacionales</strong> (BID, Banco Mundial)</p>
+
+<h3 id="82-ley-de-asociaciones-publico-privadas-del-estado-de-chihuahua">8.2 Ley de Asociaciones Público Privadas del Estado de Chihuahua</h3>
+
+<p><strong>Objeto:</strong><br />
+Regular proyectos de inversión en infraestructura mediante la participación de capital privado.</p>
+
+<p><strong>Modalidades:</strong></p>
+
+<p>a) <strong>APP Autofinanciables:</strong><br />
+- Recuperación de inversión mediante ingresos del proyecto<br />
+- Concesión de servicios<br />
+- Cobro a usuarios</p>
+
+<p>b) <strong>APP con Pago Diferido:</strong><br />
+- Inversión privada inicial<br />
+- Pago por el sector público durante la operación<br />
+- Disponibilidad de infraestructura</p>
+
+<p><strong>Aplicabilidad en Proyectos Hidráulicos:</strong></p>
+
+<ul>
+<li>Construcción y operación de plantas de tratamiento</li>
+<li>Modernización de redes de distribución</li>
+<li>Sistemas de macromedición y control</li>
+<li>Plantas desaladoras</li>
+<li>Proyectos de eficiencia energética</li>
+</ul>
+
+<p><strong>Requisitos para APP:</strong></p>
+
+<ol>
+<li><p><strong>Análisis de Conveniencia:</strong></p>
+
+<ul>
+<li>Comparativo con obra pública tradicional</li>
+<li>Transferencia eficiente de riesgos</li>
+<li>Valor por dinero (Value for Money)</li>
+</ul></li>
+<li><p><strong>Estudios de Factibilidad:</strong></p>
+
+<ul>
+<li>Técnico</li>
+<li>Económico-financiero</li>
+<li>Legal</li>
+<li>Ambiental</li>
+<li>Social</li>
+</ul></li>
+<li><p><strong>Autorización:</strong></p>
+
+<ul>
+<li>Aprobación del Comité de Obra Pública</li>
+<li>Autorización del Cabildo (cuando aplique)</li>
+<li>Dictamen favorable de la Secretaría de Hacienda</li>
+</ul></li>
+<li><p><strong>Licitación:</strong></p>
+
+<ul>
+<li>Convocatoria pública</li>
+<li>Precalificación de participantes</li>
+<li>Evaluación técnica y económica</li>
+<li>Adjudicación al mejor postor</li>
+</ul></li>
+<li><p><strong>Contrato de APP:</strong></p>
+
+<ul>
+<li>Plazo de concesión (hasta 30 años)</li>
+<li>Derechos y obligaciones de las partes</li>
+<li>Mecanismos de pago</li>
+<li>Matriz de riesgos</li>
+<li>Garantías</li>
+<li>Causales de terminación</li>
+</ul></li>
+</ol>
+
+<h3 id="83-endeudamiento-publico">8.3 Endeudamiento Público</h3>
+
+<p><strong>Marco Legal:</strong></p>
+
+<ul>
+<li><strong>Ley de Disciplina Financiera de las Entidades Federativas y Municipios</strong></li>
+<li><strong>Ley Estatal de Deuda Pública</strong></li>
+</ul>
+
+<p><strong>Requisitos:</strong></p>
+
+<p>a) <strong>Capacidad de Endeudamiento:</strong><br />
+   - Servicio de la deuda no mayor al % de ingresos de libre disposición<br />
+   - Análisis de sostenibilidad financiera</p>
+
+<p>b) <strong>Autorización:</strong><br />
+   - Aprobación del Cabildo<br />
+   - Autorización de la Legislatura Estatal<br />
+   - Registro en la SHCP</p>
+
+<p>c) <strong>Destino:</strong><br />
+   - Exclusivamente inversión pública productiva<br />
+   - No gasto corriente<br />
+   - Proyectos con rentabilidad social y/o económica</p>
+
+<p>d) <strong>Garantías:</strong><br />
+   - Afectación de participaciones federales<br />
+   - Hipoteca de bienes<br />
+   - Fuente de pago definida</p>
+
+<h3 id="84-contratos-de-inversion-publica">8.4 Contratos de Inversión Pública</h3>
+
+<p><strong>Características:</strong></p>
+
+<ul>
+<li>Convenio entre la JCAS y la entidad financiadora</li>
+<li>Objeto: construcción de infraestructura específica</li>
+<li>Recursos ejercidos conforme a normativa de obra pública</li>
+<li>Transparencia y rendición de cuentas</li>
+<li>Supervisión por parte del financiador</li>
+<li>Ejercicio sujeto a calendario</li>
+<li>Reportes de avance físico-financiero</li>
+</ul>
+
+<p><strong>Documentos del Contrato de Inversión:</strong></p>
+
+<ol>
+<li>Contrato principal</li>
+<li>Anexos técnicos (proyectos ejecutivos)</li>
+<li>Programa de inversión</li>
+<li>Calendario de ministración de recursos</li>
+<li>Reglas de operación</li>
+<li>Mecanismos de fiscalización</li>
+</ol>
+
+<hr />
+
+<h2 id="9-cumplimiento-regulatorio-y-control">9. CUMPLIMIENTO REGULATORIO Y CONTROL</h2>
+
+<h3 id="91-transparencia-y-rendicion-de-cuentas">9.1 Transparencia y Rendición de Cuentas</h3>
+
+<p><strong>Ley de Transparencia y Acceso a la Información Pública:</strong></p>
+
+<p><strong>Obligaciones de Transparencia:</strong></p>
+
+<p>a) <strong>Publicación Proactiva:</strong><br />
+   - Información financiera (presupuesto, ejercicio, cuenta pública)<br />
+   - Licitaciones y contratos<br />
+   - Programas de obra y adquisiciones<br />
+   - Estructura orgánica y directorio<br />
+   - Remuneraciones de funcionarios<br />
+   - Indicadores de gestión</p>
+
+<p>b) <strong>Portal de Transparencia:</strong><br />
+   - Página web institucional actualizada<br />
+   - Plataforma Nacional de Transparencia<br />
+   - Información en formatos abiertos</p>
+
+<p>c) <strong>Solicitudes de Información:</strong><br />
+   - Atención a solicitudes ciudadanas<br />
+   - Plazos de respuesta (20 días hábiles)<br />
+   - Sistema de impugnaciones</p>
+
+<h3 id="92-control-interno">9.2 Control Interno</h3>
+
+<p><strong>Contraloría Interna de la JCAS:</strong></p>
+
+<p><strong>Funciones:</strong></p>
+
+<p>a) Vigilancia del cumplimiento de normas<br />
+b) Auditorías internas<br />
+c) Prevención de conflictos de interés<br />
+d) Investigación de denuncias<br />
+e) Procedimientos administrativos disciplinarios<br />
+f) Promoción de cultura de integridad</p>
+
+<p><strong>Instrumentos:</strong></p>
+
+<ul>
+<li>Manual de procedimientos</li>
+<li>Código de ética</li>
+<li>Declaraciones patrimoniales (3de3)</li>
+<li>Sistema de quejas y denuncias</li>
+<li>Evaluación de control interno (COSO)</li>
+</ul>
+
+<h3 id="93-control-externo">9.3 Control Externo</h3>
+
+<p><strong>9.3.1 Auditoría Superior del Estado de Chihuahua:</strong></p>
+
+<p><strong>Facultades:</strong></p>
+
+<ul>
+<li>Fiscalización de la cuenta pública</li>
+<li>Auditorías financieras, de cumplimiento y de desempeño</li>
+<li>Revisión de obras públicas</li>
+<li>Seguimiento a observaciones</li>
+<li>Promoción de responsabilidades</li>
+</ul>
+
+<p><strong>Alcance:</strong></p>
+
+<ul>
+<li>Ingresos y egresos</li>
+<li>Manejo, custodia y aplicación de recursos públicos</li>
+<li>Deuda pública</li>
+<li>Patrimonio</li>
+<li>Cumplimiento de objetivos y metas</li>
+</ul>
+
+<p><strong>9.3.2 Auditoría Superior de la Federación (ASF):</strong></p>
+
+<p>Cuando se ejerzan recursos federales:</p>
+
+<ul>
+<li>Auditoría a fondos del Ramo 33</li>
+<li>Programas federales (CONAGUA)</li>
+<li>Créditos con garantía federal</li>
+</ul>
+
+<p><strong>9.3.3 Secretaría de la Función Pública (SFP):</strong></p>
+
+<p>En proyectos con recursos federales:</p>
+
+<ul>
+<li>Testigos sociales</li>
+<li>Contraloría Social</li>
+<li>Auditorías específicas</li>
+</ul>
+
+<h3 id="94-organos-de-fiscalizacion-especializados">9.4 Órganos de Fiscalización Especializados</h3>
+
+<p><strong>CONAGUA (Comisión Nacional del Agua):</strong></p>
+
+<ul>
+<li>Inspección y vigilancia de cumplimiento de la Ley de Aguas Nacionales</li>
+<li>Verificación de concesiones y permisos</li>
+<li>Sanciones por infracciones</li>
+</ul>
+
+<p><strong>PROFEPA (Procuraduría Federal de Protección al Ambiente):</strong></p>
+
+<ul>
+<li>Inspección de cumplimiento de normativa ambiental</li>
+<li>Verificación de descargas de aguas residuales</li>
+<li>Sanciones por contaminación</li>
+</ul>
+
+<p><strong>COFEPRIS (Comisión Federal para la Protección contra Riesgos Sanitarios):</strong></p>
+
+<ul>
+<li>Vigilancia de calidad del agua potable</li>
+<li>Verificación del cumplimiento de NOM-127-SSA1</li>
+</ul>
+
+<h3 id="95-responsabilidades-administrativas">9.5 Responsabilidades Administrativas</h3>
+
+<p><strong>Ley General de Responsabilidades Administrativas:</strong></p>
+
+<p><strong>Tipos de Faltas:</strong></p>
+
+<p>a) <strong>Faltas Administrativas No Graves:</strong><br />
+   - Incumplimiento de protocolos<br />
+   - Omisiones menores<br />
+   - Sanciones: amonestación, suspensión, inhabilitación menor</p>
+
+<p>b) <strong>Faltas Administrativas Graves:</strong><br />
+   - Cohecho<br />
+   - Peculado<br />
+   - Desvío de recursos públicos<br />
+   - Contratación indebida<br />
+   - Tráfico de influencias<br />
+   - Conflicto de interés<br />
+   - Sanciones: inhabilitación, sanciones económicas, destitución</p>
+
+<p><strong>Sujetos Obligados:</strong></p>
+
+<ul>
+<li>Servidores públicos de la JCAS</li>
+<li>Particulares que contraten con el organismo</li>
+<li>Consultores y asesores</li>
+</ul>
+
+<h3 id="96-anticorrupcion">9.6 Anticorrupción</h3>
+
+<p><strong>Sistema Estatal Anticorrupción de Chihuahua:</strong></p>
+
+<p><strong>Componentes:</strong></p>
+
+<p>a) Comité Coordinador<br />
+b) Comité de Participación Ciudadana<br />
+c) Secretaría Ejecutiva<br />
+d) Fiscalía Especializada en Combate a la Corrupción</p>
+
+<p><strong>Instrumentos:</strong></p>
+
+<ul>
+<li>Plataforma Digital Estatal</li>
+<li>Políticas de integridad</li>
+<li>Evaluación de riesgos de corrupción</li>
+<li>Denuncias ciudadanas</li>
+</ul>
+
+<hr />
+
+<h2 id="10-anexos-normativos">10. ANEXOS NORMATIVOS</h2>
+
+<h3 id="101-ordenamientos-juridicos-aplicables">10.1 Ordenamientos Jurídicos Aplicables</h3>
+
+<p><strong>NIVEL FEDERAL:</strong></p>
+
+<ol>
+<li>Constitución Política de los Estados Unidos Mexicanos</li>
+<li>Ley de Aguas Nacionales</li>
+<li>Ley General del Equilibrio Ecológico y Protección al Ambiente</li>
+<li>Ley de Planeación</li>
+<li>Ley Federal de Presupuesto y Responsabilidad Hacendaria</li>
+<li>Ley de Disciplina Financiera de las Entidades Federativas y Municipios</li>
+<li>Ley General de Responsabilidades Administrativas</li>
+<li>Ley General de Transparencia y Acceso a la Información Pública</li>
+<li>Ley Federal de Procedimiento Administrativo</li>
+</ol>
+
+<p><strong>NIVEL ESTATAL:</strong></p>
+
+<ol start="10">
+<li>Constitución Política del Estado de Chihuahua</li>
+<li>Ley del Agua del Estado de Chihuahua</li>
+<li>Ley de Obras Públicas y Servicios Relacionados con las Mismas del Estado de Chihuahua</li>
+<li>Reglamento de la Ley de Obras Públicas y Servicios Relacionados</li>
+<li>Historial de Reformas de la Ley de Obras Públicas</li>
+<li>Ley de Adquisiciones, Arrendamientos y Contratación de Servicios del Estado de Chihuahua</li>
+<li>Reglamento de la Ley de Adquisiciones y Contratación de Servicios</li>
+<li>Anexo a la Ley de Adquisiciones, Arrendamientos y Contratación de Servicios</li>
+<li>Ley de Asociaciones Público Privadas del Estado de Chihuahua</li>
+<li>Código Municipal del Estado de Chihuahua</li>
+<li>Ley de Transparencia y Acceso a la Información Pública del Estado de Chihuahua</li>
+</ol>
+
+<p><strong>NORMATIVA ESPECÍFICA DE LA JCAS:</strong></p>
+
+<ol start="21">
+<li>Decreto de Creación de la JCAS</li>
+<li>Reglamento de Agua y Drenaje de la Ciudad de Chihuahua (17/04/1937)</li>
+<li>Acta de Constitución de la Junta Central (22/08/1942)</li>
+<li>Código Municipal incluyendo integración de la Junta Central (26/04/1950)</li>
+<li>Transferencia de sistemas a Estados y Ayuntamientos (05/11/1980)</li>
+<li>Reglamento de Juntas Rurales de Agua Potable (03/10/1987)</li>
+<li>Creación Junta Municipal Aquiles Serdán (28/03/2015)</li>
+<li>Acuerdo 125 - Comité del Patrimonio Inmobiliario</li>
+<li>Manual de Integración del Comité de Obra Pública JCAS (2023)</li>
+<li>Normativa Aplicable JCAS</li>
+</ol>
+
+<p><strong>NORMAS TÉCNICAS:</strong></p>
+
+<ol start="31">
+<li>NOM-001-SEMARNAT-2021 (Descargas de aguas residuales)</li>
+<li>NOM-002-SEMARNAT (Descargas a alcantarillado)</li>
+<li>NOM-003-SEMARNAT (Reúso de aguas tratadas)</li>
+<li>NOM-004-SEMARNAT (Lodos y biosólidos)</li>
+<li>NOM-127-SSA1 (Calidad del agua potable)</li>
+<li>Serie NMX-AA (Análisis de agua)</li>
+</ol>
+
+<h3 id="102-glosario-de-terminos-tecnico-juridicos">10.2 Glosario de Términos Técnico-Jurídicos</h3>
+
+<p><strong>APP</strong>: Asociación Público Privada</p>
+
+<p><strong>APAZU</strong>: Programa de Agua Potable, Drenaje y Tratamiento a Zonas Urbanas</p>
+
+<p><strong>ASF</strong>: Auditoría Superior de la Federación</p>
+
+<p><strong>BANOBRAS</strong>: Banco Nacional de Obras y Servicios Públicos</p>
+
+<p><strong>BID</strong>: Banco Interamericano de Desarrollo</p>
+
+<p><strong>CFE</strong>: Comisión Federal de Electricidad</p>
+
+<p><strong>COFEPRIS</strong>: Comisión Federal para la Protección contra Riesgos Sanitarios</p>
+
+<p><strong>CONAGUA</strong>: Comisión Nacional del Agua</p>
+
+<p><strong>COSO</strong>: Committee of Sponsoring Organizations (Marco de Control Interno)</p>
+
+<p><strong>DBO5</strong>: Demanda Bioquímica de Oxígeno a 5 días</p>
+
+<p><strong>DQO</strong>: Demanda Química de Oxígeno</p>
+
+<p><strong>JCAS</strong>: Junta Central de Aguas y Saneamiento</p>
+
+<p><strong>LAU</strong>: Licencia Ambiental Única</p>
+
+<p><strong>LGEEPA</strong>: Ley General del Equilibrio Ecológico y Protección al Ambiente</p>
+
+<p><strong>MIA</strong>: Manifestación de Impacto Ambiental</p>
+
+<p><strong>NMX</strong>: Norma Mexicana</p>
+
+<p><strong>NOM</strong>: Norma Oficial Mexicana</p>
+
+<p><strong>PROAGUA</strong>: Programa de Agua Potable, Alcantarillado y Saneamiento</p>
+
+<p><strong>PROFEPA</strong>: Procuraduría Federal de Protección al Ambiente</p>
+
+<p><strong>SEMARNAT</strong>: Secretaría de Medio Ambiente y Recursos Naturales</p>
+
+<p><strong>SFP</strong>: Secretaría de la Función Pública</p>
+
+<p><strong>SHCP</strong>: Secretaría de Hacienda y Crédito Público</p>
+
+<p><strong>SST</strong>: Sólidos Suspendidos Totales</p>
+
+<p><strong>TIR</strong>: Tasa Interna de Retorno</p>
+
+<p><strong>VPN</strong>: Valor Presente Neto</p>
+
+<h3 id="103-flujograma-del-proceso-de-contratacion-de-obra-publica">10.3 Flujograma del Proceso de Contratación de Obra Pública</h3>
+
+<pre><code>FASE 1: PLANEACIÓN
+↓
+1. Identificación de necesidades
+2. Elaboración de estudios y proyectos ejecutivos
+3. Integración de expediente técnico
+4. Presupuesto y análisis de precios unitarios
+5. Autorización del Comité de Obra Pública
+6. Inscripción en programa anual
+↓
+FASE 2: LICITACIÓN
+↓
+7. Elaboración de bases de licitación
+8. Aprobación de bases por Comité
+9. Publicación de convocatoria
+10. Venta de bases
+11. Visita al sitio de obra
+12. Junta de aclaraciones
+13. Presentación y apertura de proposiciones
+14. Evaluación técnica y económica
+15. Emisión de dictamen
+16. Fallo
+↓
+FASE 3: CONTRATACIÓN
+↓
+17. Notificación al ganador
+18. Entrega de garantías
+19. Formalización del contrato
+20. Entrega del anticipo (si aplica)
+↓
+FASE 4: EJECUCIÓN
+↓
+21. Inicio de obra
+22. Supervisión y control (bitácora, estimaciones, pruebas)
+23. Pagos progresivos
+24. Modificaciones (si aplican)
+↓
+FASE 5: CONCLUSIÓN
+↓
+25. Terminación de trabajos
+26. Pruebas de funcionamiento
+27. Entrega-recepción
+28. Finiquito
+29. Liberación de garantías (excepto vicios ocultos)
+↓
+FASE 6: OPERACIÓN
+↓
+30. Puesta en marcha
+31. Periodo de garantía
+32. Mantenimiento
+</code></pre>
+
+<h3 id="104-matriz-de-responsabilidades">10.4 Matriz de Responsabilidades</h3>
+
+<table>
+<thead>
+<tr>
+  <th>ETAPA</th>
+  <th>RESPONSABLE</th>
+  <th>DOCUMENTOS CLAVE</th>
+  <th>MARCO LEGAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Planeación</strong></td>
+  <td>Dirección de Obras</td>
+  <td>- Proyecto ejecutivo<br>- Presupuesto<br>- Expediente técnico</td>
+  <td>Ley de Obras Públicas<br>Art. X (planificación)</td>
+</tr>
+<tr>
+  <td><strong>Autorización</strong></td>
+  <td>Comité de Obra Pública</td>
+  <td>- Acta de autorización<br>- Dictamen técnico</td>
+  <td>Manual Comité OP 2023</td>
+</tr>
+<tr>
+  <td><strong>Licitación</strong></td>
+  <td>Dirección de Obras /<br>Subdirección de Licitaciones</td>
+  <td>- Bases<br>- Convocatoria<br>- Actas</td>
+  <td>Ley de Obras Públicas<br>Capítulo II</td>
+</tr>
+<tr>
+  <td><strong>Evaluación</strong></td>
+  <td>Comité Técnico Evaluador</td>
+  <td>- Dictamen de evaluación<br>- Cuadro comparativo</td>
+  <td>Reglamento Ley OP<br>Art. X</td>
+</tr>
+<tr>
+  <td><strong>Fallo</strong></td>
+  <td>Comité de Obra Pública</td>
+  <td>- Acta de fallo</td>
+  <td>Ley de Obras Públicas<br>Art. X</td>
+</tr>
+<tr>
+  <td><strong>Contratación</strong></td>
+  <td>Dirección Jurídica</td>
+  <td>- Contrato<br>- Garantías</td>
+  <td>Ley de Obras Públicas<br>Capítulo III</td>
+</tr>
+<tr>
+  <td><strong>Supervisión</strong></td>
+  <td>Residente de Obra</td>
+  <td>- Bitácora<br>- Estimaciones<br>- Reportes</td>
+  <td>Reglamento Ley OP</td>
+</tr>
+<tr>
+  <td><strong>Pagos</strong></td>
+  <td>Dirección Administrativa</td>
+  <td>- Estimaciones aprobadas<br>- Órdenes de pago</td>
+  <td>Ley de Obras Públicas<br>Art. X (pagos)</td>
+</tr>
+<tr>
+  <td><strong>Control de Calidad</strong></td>
+  <td>Laboratorio /<br>Supervisión Externa</td>
+  <td>- Certificados<br>- Pruebas</td>
+  <td>Especificaciones técnicas</td>
+</tr>
+<tr>
+  <td><strong>Recepción</strong></td>
+  <td>Comité de Recepción</td>
+  <td>- Acta entrega-recepción<br>- Planos as-built</td>
+  <td>Ley de Obras Públicas<br>Art. X (recepción)</td>
+</tr>
+<tr>
+  <td><strong>Fiscalización</strong></td>
+  <td>Contraloría Interna</td>
+  <td>- Auditorías<br>- Observaciones</td>
+  <td>Ley de Responsabilidades</td>
+</tr>
+<tr>
+  <td><strong>Operación</strong></td>
+  <td>Dirección de Operación</td>
+  <td>- Manuales<br>- Bitácoras operativas</td>
+  <td>NOM-001-SEMARNAT-2021</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="105-checklist-de-cumplimiento-normativo">10.5 Checklist de Cumplimiento Normativo</h3>
+
+<p><strong>ANTES DE INICIAR EL PROYECTO:</strong></p>
+
+<p>☐ Estudios de factibilidad (técnico, económico, ambiental, social)<br />
+☐ Proyecto ejecutivo completo (planos, especificaciones, catálogo de conceptos)<br />
+☐ Presupuesto detallado<br />
+☐ Análisis de precios unitarios<br />
+☐ Programa de obra<br />
+☐ Manifestación de Impacto Ambiental (si aplica) - APROBADA<br />
+☐ Permisos de CONAGUA (concesión, descarga)<br />
+☐ Licencias de construcción<br />
+☐ Disponibilidad presupuestal<br />
+☐ Autorización del Comité de Obra Pública<br />
+☐ Inscripción en programa anual de obra</p>
+
+<p><strong>DURANTE LA LICITACIÓN:</strong></p>
+
+<p>☐ Bases de licitación aprobadas<br />
+☐ Convocatoria publicada (CompraNet, web, DOE)<br />
+☐ Junta de aclaraciones realizada<br />
+☐ Acta de apertura de propuestas<br />
+☐ Evaluación técnica y económica documentada<br />
+☐ Dictamen de evaluación<br />
+☐ Fallo emitido y notificado</p>
+
+<p><strong>AL CONTRATAR:</strong></p>
+
+<p>☐ Contrato firmado por ambas partes<br />
+☐ Garantía de cumplimiento (10%)<br />
+☐ Garantía de anticipo (100% del anticipo)<br />
+☐ Póliza de responsabilidad civil<br />
+☐ Registro del contratista vigente<br />
+☐ Constancias fiscales al día<br />
+☐ Entrega de anticipo (si aplica)</p>
+
+<p><strong>DURANTE LA EJECUCIÓN:</strong></p>
+
+<p>☐ Bitácora de obra abierta<br />
+☐ Supervisión permanente<br />
+☐ Estimaciones revisadas y autorizadas<br />
+☐ Pruebas de calidad de materiales<br />
+☐ Reportes de avance físico-financiero<br />
+☐ Control de modificaciones (convenios)<br />
+☐ Fotografías y evidencias<br />
+☐ Cumplimiento del programa de obra</p>
+
+<p><strong>AL CONCLUIR:</strong></p>
+
+<p>☐ Obra terminada conforme a proyecto<br />
+☐ Pruebas de funcionamiento satisfactorias<br />
+☐ Planos as-built entregados<br />
+☐ Manuales de operación y mantenimiento<br />
+☐ Capacitación a personal operativo<br />
+☐ Acta de entrega-recepción<br />
+☐ Finiquito firmado<br />
+☐ Garantía de vicios ocultos vigente<br />
+☐ Liberación de garantías de cumplimiento y anticipo</p>
+
+<p><strong>EN OPERACIÓN:</strong></p>
+
+<p>☐ Personal capacitado<br />
+☐ Equipos de medición calibrados<br />
+☐ Monitoreo de parámetros (NOM-001-SEMARNAT-2021)<br />
+☐ Reportes de operación (COA ante SEMARNAT)<br />
+☐ Mantenimiento preventivo programado<br />
+☐ Bitácoras de operación<br />
+☐ Cumplimiento de límites de descarga</p>
+
+<hr />
+
+<h2 id="11-analisis-tecnico-economico-del-proyecto-especifico">11. ANÁLISIS TÉCNICO-ECONÓMICO DEL PROYECTO ESPECÍFICO</h2>
+
+<h3 id="111-proyecto-infraestructura-de-energia-solar-fotovoltaica-con-bess-para-jcas-chihuahua">11.1 Proyecto: Infraestructura de Energía Solar Fotovoltaica con BESS para JCAS Chihuahua</h3>
+
+<p>Con base en el análisis técnico contenido en el documento <strong>"Área y energía para JCAS Chihuahua vs1.2"</strong>, se fundamenta el siguiente proyecto de inversión:</p>
+
+<h4 id="1111-descripcion-del-proyecto">11.1.1 Descripción del Proyecto</h4>
+
+<p><strong>Nombre del Proyecto:</strong><br />
+"Construcción y Operación de Sistema de Generación de Energía Solar Fotovoltaica con Almacenamiento en Baterías (BESS) para Organismos Operadores de Agua del Estado de Chihuahua"</p>
+
+<p><strong>Objetivos:</strong><br />
+1. Reducir costos operativos de energía eléctrica en 100% mediante generación propia<br />
+2. Garantizar sostenibilidad financiera de los organismos operadores<br />
+3. Contribuir a metas de descarbonización del Estado<br />
+4. Mejorar confiabilidad del servicio de agua potable mediante almacenamiento energético</p>
+
+<p><strong>Alcance Geográfico:</strong><br />
+- JMAS Juárez: 76.69 hectáreas (65.37 MWp)<br />
+- JMAS Chihuahua: 72.01 hectáreas (61.39 MWp)<br />
+- JMAS Cuauhtémoc: 16.22 hectáreas (13.83 MWp)<br />
+- JMAS Parral: 11.33 hectáreas (9.66 MWp)</p>
+
+<p><strong>Total:</strong> 176.25 hectáreas, 150.24 MWp instalados</p>
+
+<h4 id="1112-justificacion-cuantitativa">11.1.2 Justificación Cuantitativa</h4>
+
+<p><strong>Problema a Resolver:</strong></p>
+
+<p>Los organismos operadores de agua del Estado de Chihuahua enfrentan una crisis de sostenibilidad financiera debido al alto costo de energía eléctrica:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Indicador</th>
+  <th>Valor Actual</th>
+  <th>Proyección sin Proyecto (15 años)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Gasto energético anual</strong></td>
+  <td>$792.7 millones</td>
+  <td>$13,863 millones acumulados</td>
+</tr>
+<tr>
+  <td><strong>Incremento tarifario CFE</strong></td>
+  <td>6% anual promedio</td>
+  <td>Insostenible</td>
+</tr>
+<tr>
+  <td><strong>Relación gasto energía/ingresos</strong></td>
+  <td>35-45%</td>
+  <td>Riesgo de quiebra técnica</td>
+</tr>
+<tr>
+  <td><strong>Emisiones CO₂</strong></td>
+  <td>159,458 ton/año</td>
+  <td>2,391,870 toneladas acumuladas</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Solución Propuesta:</strong></p>
+
+<p>Inversión en infraestructura de energía renovable que:<br />
+- Elimina dependencia de CFE para operación<br />
+- Genera ahorros netos de $11,055 millones en 15 años<br />
+- Reduce huella de carbono a cero en operación<br />
+- Crea autosuficiencia energética</p>
+
+<h4 id="1113-modelo-financiero-del-proyecto">11.1.3 Modelo Financiero del Proyecto</h4>
+
+<p><strong>A) CAPEX (Inversión Inicial):</strong></p>
+
+<pre><code>CAPEX Total: $2,616,048,925 MXN ($147,776,751 USD)
+
+Desglose:
+├─ Generación Solar (150.24 MWp)
+│  ├─ Paneles fotovoltaicos: $1,727,809,445
+│  └─ Inversores y BOP: $434,452,361
+│
+├─ Almacenamiento BESS (109.2 MWh)
+│  └─ 24 contenedores LFP: $328,636,806
+│
+├─ Infraestructura Eléctrica
+│  └─ Subestaciones y conexiones: $106,344,564
+│
+└─ Desarrollo y EPC
+   └─ Ingeniería y construcción: $70,800,000
+</code></pre>
+
+<p><strong>B) Estructura de Financiamiento:</strong></p>
+
+<pre><code>Capital Propio (30%): $784,814,678
+├─ JCAS (recursos propios): 40%
+├─ Gobierno del Estado: 40%
+└─ Gobierno Federal (CONAGUA): 20%
+
+Deuda Bancaria (70%): $1,831,234,248
+├─ BANOBRAS: 60%
+└─ Banca Comercial: 40%
+
+Condiciones:
+- Plazo: 15 años
+- Tasa: 11% (TIIE 7.36% + spread 3.64%)
+- Garantía: Ingresos tarifarios
+</code></pre>
+
+<p><strong>C) Ingresos Proyectados (Ahorro Energético):</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Periodo</th>
+  <th>Ahorro Anual (MXN)</th>
+  <th>Margen Operativo</th>
+  <th>Acumulado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Año 1-5</td>
+  <td>$36.0M - $40.6M</td>
+  <td>39% - 52%</td>
+  <td>$191.7M</td>
+</tr>
+<tr>
+  <td>Año 6-10</td>
+  <td>$41.8M - $47.0M</td>
+  <td>58% - 65%</td>
+  <td>$223.5M</td>
+</tr>
+<tr>
+  <td>Año 11-15</td>
+  <td>$48.4M - $54.5M</td>
+  <td>68% - 76%</td>
+  <td>$251.2M</td>
+</tr>
+<tr>
+  <td><strong>Total 15 años</strong></td>
+  <td><strong>$634.9M promedio</strong></td>
+  <td>-</td>
+  <td><strong>$9,523M</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>D) Indicadores Financieros:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Métrica</th>
+  <th>Valor</th>
+  <th>Interpretación Legal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>TIR</strong></td>
+  <td>18.5%</td>
+  <td>Superior a costo de capital (11%)</td>
+</tr>
+<tr>
+  <td><strong>VPN @ 11%</strong></td>
+  <td>$443.1M</td>
+  <td>Rentabilidad social positiva</td>
+</tr>
+<tr>
+  <td><strong>B/C</strong></td>
+  <td>1.69</td>
+  <td>Por cada peso invertido, retornan $1.69</td>
+</tr>
+<tr>
+  <td><strong>Payback</strong></td>
+  <td>7.2 años</td>
+  <td>Recuperación en mitad del plazo</td>
+</tr>
+<tr>
+  <td><strong>TIRM</strong></td>
+  <td>15.2%</td>
+  <td>Conservadora (asume reinversión @ 8%)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="1114-analisis-de-riesgos">11.1.4 Análisis de Riesgos</h4>
+
+<p><strong>Riesgos Identificados y Mitigaciones:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Riesgo</th>
+  <th>Probabilidad</th>
+  <th>Impacto</th>
+  <th>Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Variación de insolación</strong></td>
+  <td>Media</td>
+  <td>Moderado</td>
+  <td>Diseño conservador -10%, seguro paramétrico</td>
+</tr>
+<tr>
+  <td><strong>Incremento de CAPEX</strong></td>
+  <td>Media</td>
+  <td>Moderado</td>
+  <td>Contratos EPC precio cerrado, contingencias 5%</td>
+</tr>
+<tr>
+  <td><strong>Cambios regulatorios</strong></td>
+  <td>Baja</td>
+  <td>Alto</td>
+  <td>Análisis legal exhaustivo, cláusulas de salvaguarda</td>
+</tr>
+<tr>
+  <td><strong>Riesgo cambiario</strong></td>
+  <td>Media</td>
+  <td>Moderado</td>
+  <td>70% equipos nacionalizados, cobertura USD</td>
+</tr>
+<tr>
+  <td><strong>Obsolescencia tecnológica</strong></td>
+  <td>Baja</td>
+  <td>Bajo</td>
+  <td>Garantías 25 años paneles, 10 años baterías</td>
+</tr>
+<tr>
+  <td><strong>Incumplimiento CFE (interconexión)</strong></td>
+  <td>Baja</td>
+  <td>Alto</td>
+  <td>Acuerdos previos CRE, respaldo legal</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="1115-cumplimiento-normativo-del-proyecto-especifico">11.1.5 Cumplimiento Normativo del Proyecto Específico</h4>
+
+<p><strong>Marco Regulatorio Energético:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Normativa</th>
+  <th>Aplicabilidad</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Ley de la Industria Eléctrica</strong></td>
+  <td>Generación distribuida</td>
+  <td>Cumple</td>
+</tr>
+<tr>
+  <td><strong>CRE (Permisos)</strong></td>
+  <td>Permiso generación &gt;0.5 MW</td>
+  <td>Requerido</td>
+</tr>
+<tr>
+  <td><strong>NOM-001-SEDE</strong></td>
+  <td>Instalaciones eléctricas</td>
+  <td>Obligatorio</td>
+</tr>
+<tr>
+  <td><strong>CFE (Interconexión)</strong></td>
+  <td>Contrato de interconexión</td>
+  <td>En trámite</td>
+</tr>
+<tr>
+  <td><strong>Ley de Transición Energética</strong></td>
+  <td>Metas CEL</td>
+  <td>Contribuye</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Marco Regulatorio Ambiental:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Requisito</th>
+  <th>Documento</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>MIA (Manifestación Impacto Ambiental)</strong></td>
+  <td>MIA-Particular</td>
+  <td>A presentar</td>
+</tr>
+<tr>
+  <td><strong>Cambio uso de suelo</strong></td>
+  <td>SEMARNAT</td>
+  <td>Según terrenos</td>
+</tr>
+<tr>
+  <td><strong>Estudio flora/fauna</strong></td>
+  <td>Anexo MIA</td>
+  <td>A realizar</td>
+</tr>
+<tr>
+  <td><strong>Plan manejo residuos</strong></td>
+  <td>Baterías fin de vida</td>
+  <td>Diseñado</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Marco Regulatorio de Obra Pública:</strong></p>
+
+<p>✅ Ley de Obras Públicas del Estado de Chihuahua - Aplicable<br />
+✅ Licitación Pública Nacional - Procedimiento requerido<br />
+✅ Comité de Obra Pública - Autorización necesaria<br />
+✅ Registro de contratistas - Participantes calificados<br />
+✅ Garantías y fianzas - Conforme a normativa</p>
+
+<h3 id="112-fundamentacion-legal-especifica-del-proyecto-solar">11.2 Fundamentación Legal Específica del Proyecto Solar</h3>
+
+<h4 id="1121-competencia-de-la-jcas-para-invertir-en-energia-renovable">11.2.1 Competencia de la JCAS para Invertir en Energía Renovable</h4>
+
+<p><strong>Fundamento Constitucional:</strong></p>
+
+<ul>
+<li><p><strong>Artículo 115 Constitucional, Fracción III:</strong> Los Municipios tendrán a su cargo la función de agua potable, drenaje, alcantarillado, tratamiento y disposición de sus aguas residuales.</p></li>
+<li><p><strong>Interpretación:</strong> La prestación eficiente del servicio público incluye la capacidad de <strong>reducir costos operativos</strong> mediante inversiones en infraestructura energética propia.</p></li>
+</ul>
+
+<p><strong>Fundamento en Ley del Agua del Estado de Chihuahua:</strong></p>
+
+<ul>
+<li><p>La JCAS tiene facultades para "adoptar las medidas necesarias para garantizar la <strong>sustentabilidad financiera</strong> del organismo".</p></li>
+<li><p>Autorización para "realizar inversiones en infraestructura necesaria para la prestación eficiente de los servicios".</p></li>
+</ul>
+
+<p><strong>Precedentes Legales:</strong></p>
+
+<p>Diversos organismos operadores en México han implementado proyectos similares:<br />
+- COMAPA Hermosillo, Sonora (planta solar 5 MW)<br />
+- SIAPA Guadalajara, Jalisco (proyectos fotovoltaicos)<br />
+- CESPT Tijuana, Baja California (energía solar en plantas)</p>
+
+<h4 id="1122-naturaleza-juridica-de-la-inversion">11.2.2 Naturaleza Jurídica de la Inversión</h4>
+
+<p><strong>Clasificación Legal del Proyecto:</strong></p>
+
+<ol>
+<li><p><strong>Obra Pública:</strong> Construcción de infraestructura (paneles, subestaciones, BESS)</p>
+
+<ul>
+<li>Sujeta a Ley de Obras Públicas del Estado</li>
+<li>Requiere licitación pública</li>
+<li>Supervisión y control conforme a normativa</li>
+</ul></li>
+<li><p><strong>Adquisición:</strong> Equipamiento electromecánico (inversores, transformadores, equipos)</p>
+
+<ul>
+<li>Sujeta a Ley de Adquisiciones del Estado</li>
+<li>Puede consolidarse con obra en contrato EPC</li>
+</ul></li>
+<li><p><strong>Servicio:</strong> Operación y mantenimiento (O&amp;M) posterior</p>
+
+<ul>
+<li>Contrato de servicios a largo plazo</li>
+<li>Puede ser operado por JCAS o tercero bajo contrato</li>
+</ul></li>
+</ol>
+
+<p><strong>Opción Recomendada:</strong> Contrato EPC (Engineering, Procurement, Construction) que consolida:<br />
+- Diseño de ingeniería<br />
+- Adquisición de equipos<br />
+- Construcción e instalación<br />
+- Puesta en marcha<br />
+- Garantías integradas</p>
+
+<h4 id="1123-viabilidad-de-financiamiento-publico">11.2.3 Viabilidad de Financiamiento Público</h4>
+
+<p><strong>Base Legal para Endeudamiento:</strong></p>
+
+<p>✅ <strong>Ley de Disciplina Financiera:</strong> El proyecto califica como "inversión pública productiva"<br />
+   - Genera ahorros cuantificables<br />
+   - Mejora eficiencia del servicio público<br />
+   - Periodo de recuperación dentro de vida útil</p>
+
+<p>✅ <strong>Capacidad de Endeudamiento de la JCAS:</strong><br />
+   - Servicio de deuda: &lt;30% de ingresos de libre disposición<br />
+   - Garantía: Afectación de ingresos tarifarios<br />
+   - Autorización: Cabildo + Congreso del Estado</p>
+
+<p>✅ <strong>Elegibilidad BANOBRAS:</strong><br />
+   - Proyectos de infraestructura sustentable<br />
+   - Eficiencia energética en servicios públicos<br />
+   - Beneficio social comprobado</p>
+
+<h4 id="1124-esquema-juridico-de-asociacion-publico-privada-opcional">11.2.4 Esquema Jurídico de Asociación Público-Privada (Opcional)</h4>
+
+<p>Como alternativa al financiamiento tradicional, el proyecto podría estructurarse como <strong>APP</strong> bajo la Ley de Asociaciones Público Privadas del Estado de Chihuahua:</p>
+
+<p><strong>Modalidad:</strong> APP Autofinanciable con Pago por Disponibilidad</p>
+
+<p><strong>Estructura:</strong></p>
+
+<pre><code>JCAS (Convocante)
+    ↓
+Licitación Pública APP
+    ↓
+Desarrollador Privado (Adjudicatario)
+    ↓
+├─ Invierte 100% CAPEX ($2,616M)
+├─ Construye infraestructura (2 años)
+├─ Opera y mantiene (15-25 años)
+└─ Transfiere activos al final
+
+JCAS paga:
+└─ Cuota anual por disponibilidad
+   (menor que gasto actual en CFE)
+</code></pre>
+
+<p><strong>Ventajas APP:</strong><br />
+- ✅ Sin endeudamiento directo de JCAS<br />
+- ✅ Transferencia de riesgo construcción/tecnología<br />
+- ✅ Garantía de desempeño contractual<br />
+- ✅ OPEX predecible</p>
+
+<p><strong>Desventajas APP:</strong><br />
+- ❌ Costo financiero mayor (capital privado más caro)<br />
+- ❌ Menor control operativo<br />
+- ❌ Complejidad contractual</p>
+
+<hr />
+
+<h2 id="conclusion">CONCLUSIÓN</h2>
+
+<p>La fundamentación legal presentada en este documento constituye el <strong>marco jurídico integral</strong> que sustenta la viabilidad legal de un proyecto de inversión pública en infraestructura hidráulica para la Junta Central de Aguas y Saneamiento (JCAS) del Estado de Chihuahua.</p>
+
+<p><strong>Específicamente, respecto al Proyecto de Energía Solar Fotovoltaica con BESS analizado:</strong></p>
+
+<h3 id="elementos-clave-de-la-fundamentacion">Elementos Clave de la Fundamentación:</h3>
+
+<ol>
+<li><p><strong>Base Constitucional y Legal Sólida</strong>: El proyecto se sustenta en mandatos constitucionales federales (Art. 115, 27, 134) y estatales, así como en un amplio marco normativo sectorial.</p></li>
+<li><p><strong>Competencia Clara de la JCAS</strong>: Como organismo público descentralizado con personalidad jurídica y patrimonio propios, la JCAS tiene plenas facultades para planear, ejecutar y operar infraestructura hidráulica.</p></li>
+<li><p><strong>Procedimientos de Contratación Transparentes</strong>: La Ley de Obras Públicas y Servicios Relacionados, junto con la Ley de Adquisiciones del Estado, establecen procedimientos claros que garantizan economía, eficacia, eficiencia, imparcialidad, honradez y transparencia.</p></li>
+<li><p><strong>Cumplimiento Ambiental Riguroso</strong>: La obligatoriedad de cumplir con la NOM-001-SEMARNAT-2021 y demás normativa ambiental asegura que el proyecto sea sustentable y proteja los recursos hídricos.</p></li>
+<li><p><strong>Diversidad de Esquemas de Financiamiento</strong>: La normativa permite acceder a recursos propios, federales, estatales, créditos, y esquemas de Asociaciones Público-Privadas, garantizando la viabilidad financiera.</p></li>
+<li><p><strong>Mecanismos de Control y Fiscalización</strong>: Los múltiples niveles de supervisión (interna, externa, técnica, administrativa) aseguran el uso eficiente y transparente de los recursos públicos.</p></li>
+<li><p><strong>Rendición de Cuentas</strong>: Las obligaciones de transparencia y acceso a la información permiten la vigilancia ciudadana y la evaluación del desempeño institucional.</p></li>
+</ol>
+
+<h3 id="recomendaciones-para-la-implementacion">Recomendaciones para la Implementación:</h3>
+
+<p>a) <strong>Integrar un equipo multidisciplinario</strong> con expertise legal, técnico, financiero y ambiental desde la fase de planeación.</p>
+
+<p>b) <strong>Documentar exhaustivamente</strong> cada etapa del proceso para facilitar auditorías y garantizar trazabilidad.</p>
+
+<p>c) <strong>Mantener comunicación permanente</strong> con autoridades normativas (CONAGUA, SEMARNAT, Contraloría) para asegurar cumplimiento continuo.</p>
+
+<p>d) <strong>Implementar un sistema de gestión de calidad</strong> que integre todos los requisitos normativos en los procedimientos operativos.</p>
+
+<p>e) <strong>Capacitar continuamente</strong> al personal de la JCAS en normativa vigente y mejores prácticas del sector.</p>
+
+<p>f) <strong>Establecer alianzas estratégicas</strong> con instituciones académicas, organismos internacionales y otros organismos operadores exitosos.</p>
+
+<p>g) <strong>Adoptar tecnologías de información</strong> para la gestión transparente de licitaciones, contratos, supervisión y operación.</p>
+
+<p>h) <strong>Involucrar a la ciudadanía</strong> mediante mecanismos de contraloría social y participación pública.</p>
+
+<h3 id="viabilidad-legal-del-proyecto">Viabilidad Legal del Proyecto:</h3>
+
+<p>Con base en el análisis realizado, se concluye que:</p>
+
+<p>✅ <strong>EXISTE FUNDAMENTO LEGAL SUFICIENTE</strong> para que la JCAS desarrolle proyectos de inversión pública en infraestructura hidráulica, <strong>incluyendo proyectos de energía renovable</strong> como complemento necesario para la sostenibilidad operativa.</p>
+
+<p>✅ <strong>LOS PROCEDIMIENTOS ESTÁN CLARAMENTE ESTABLECIDOS</strong> en la legislación estatal, con suficiente flexibilidad para adaptarse a diferentes tipos y escalas de proyectos.</p>
+
+<p>✅ <strong>EL MARCO NORMATIVO ES COMPATIBLE</strong> con estándares internacionales de transparencia, sostenibilidad y eficiencia en la gestión de servicios de agua y saneamiento.</p>
+
+<p>✅ <strong>EXISTEN MECANISMOS ADECUADOS</strong> para la fiscalización y rendición de cuentas que minimizan riesgos de corrupción y uso indebido de recursos.</p>
+
+<p>✅ <strong>EL PROYECTO ESPECÍFICO DE ENERGÍA SOLAR (150.24 MWp + 109.2 MWh BESS)</strong> cuenta con:<br />
+   - Justificación técnica sólida (diagnóstico operativo)<br />
+   - Viabilidad económico-financiera demostrada (TIR 18.5%, VPN $443M)<br />
+   - Sostenibilidad ambiental comprobada (159,458 ton CO₂/año evitadas)<br />
+   - Beneficio social cuantificado (ahorro $11,055M en 15 años)<br />
+   - Ruta normativa clara para su implementación</p>
+
+<p>✅ <strong>OPCIONES DE IMPLEMENTACIÓN LEGAL:</strong></p>
+
+<p><strong>Opción 1: Obra Pública Tradicional</strong><br />
+   - Financiamiento: 30% capital propio + 70% deuda BANOBRAS<br />
+   - Licitación Pública Nacional (EPC)<br />
+   - Plazo de ejecución: 24 meses<br />
+   - Operación: JCAS (con contrato O&amp;M especializado)</p>
+
+<p><strong>Opción 2: Asociación Público-Privada (APP)</strong><br />
+   - Modalidad: APP con pago por disponibilidad<br />
+   - Inversión: 100% privada<br />
+   - Plazo: 25 años (construcción + operación)<br />
+   - Transferencia: Final del contrato</p>
+
+<p><strong>El presente documento constituye la base legal para proceder con la estructuración, licitación, contratación, ejecución y operación de proyectos de infraestructura hidráulica, en estricto apego al Estado de Derecho y las mejores prácticas del sector.</strong></p>
+
+<h3 id="recomendacion-legal-final">Recomendación Legal Final:</h3>
+
+<p>Se <strong>RECOMIENDA PROCEDER</strong> con el proyecto bajo el siguiente esquema:</p>
+
+<ol>
+<li><p><strong>Fase Preparatoria (3-6 meses):</strong></p>
+
+<ul>
+<li>Aprobación del proyecto por Comité de Obra Pública JCAS</li>
+<li>Autorización de endeudamiento por Congreso del Estado</li>
+<li>Trámites de permisos (CRE, SEMARNAT, cambio uso de suelo)</li>
+<li>Elaboración de proyecto ejecutivo y bases de licitación</li>
+</ul></li>
+<li><p><strong>Fase de Licitación (6-9 meses):</strong></p>
+
+<ul>
+<li>Licitación Pública Nacional EPC</li>
+<li>Evaluación técnica y económica</li>
+<li>Adjudicación y formalización contractual</li>
+<li>Cierre financiero (firma crédito BANOBRAS)</li>
+</ul></li>
+<li><p><strong>Fase de Construcción (18-24 meses):</strong></p>
+
+<ul>
+<li>Ejecución de obras conforme a proyecto</li>
+<li>Supervisión técnica especializada</li>
+<li>Control de calidad y cumplimiento normativo</li>
+<li>Pruebas de funcionamiento y puesta en marcha</li>
+</ul></li>
+<li><p><strong>Fase de Operación (15-25 años):</strong></p>
+
+<ul>
+<li>Operación y mantenimiento profesional</li>
+<li>Monitoreo de desempeño energético</li>
+<li>Cumplimiento de obligaciones financieras</li>
+<li>Auditorías técnicas y financieras periódicas</li>
+</ul></li>
+</ol>
+
+<p><strong>DICTAMEN LEGAL:</strong></p>
+
+<p>El proyecto "Construcción y Operación de Sistema de Generación de Energía Solar Fotovoltaica con Almacenamiento en Baterías (BESS) para Organismos Operadores de Agua del Estado de Chihuahua" es:</p>
+
+<p>✅ <strong>LEGALMENTE VIABLE</strong><br />
+✅ <strong>FINANCIERAMENTE SOSTENIBLE</strong><br />
+✅ <strong>TÉCNICAMENTE FACTIBLE</strong><br />
+✅ <strong>AMBIENTALMENTE RESPONSABLE</strong><br />
+✅ <strong>SOCIALMENTE BENÉFICO</strong></p>
+
+<p>Y cuenta con fundamentación legal suficiente para su implementación inmediata.</p>
+
+<hr />
+
+<p><strong>Elaborado por:</strong> [Equipo Legal y Técnico JCAS]<br />
+<strong>Fecha:</strong> [Fecha de elaboración]<br />
+<strong>Versión:</strong> 1.0<br />
+<strong>Clasificación:</strong> Documento Público  </p>
+
+<p><strong>Revisiones:</strong><br />
+- Dirección Jurídica: <strong><em>_</strong><strong></em><em></strong><strong></em><br />
+- Dirección de Obras: <em></strong><strong></em><em></strong><strong></em><em></strong><br />
+- Dirección Administrativa: <strong></em><em></strong><strong></em><em></strong><strong></em><br />
+- Dirección General: <em></strong><strong></em><em></strong><strong></em>_</strong></p>
+
+<hr />
+
+<p><strong>NOTA IMPORTANTE</strong>: Este documento es una fundamentación legal general. Para cada proyecto específico, deberá elaborarse un dictamen legal particular que considere las características, magnitud, ubicación y demás particularidades del proyecto en cuestión, así como la normativa vigente al momento de su desarrollo.</p>
+
+        </div>
+    </div>
+    
+    <script>
+        // Mejorar la experiencia de impresión
+        window.onbeforeprint = function() {
+            document.title = "Fundamentacion_Legal_JCAS_Chihuahua";
+        };
+    </script>
+</body>
+</html>
