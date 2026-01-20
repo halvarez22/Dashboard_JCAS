@@ -64,11 +64,46 @@ def aplicar_tema_oscuro(fig):
 def cargar_datos_excel():
     """Carga todos los datos del archivo Excel"""
     import os
-    archivos = [f for f in os.listdir('.') if f.endswith('.xlsx') and not f.startswith('~$')]
-    archivo = archivos[0] if archivos else None
+    
+    # Obtener el directorio del script actual
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Buscar archivos Excel en el directorio actual y en el directorio base
+    directorios_a_buscar = ['.', base_dir]
+    archivo = None
+    
+    for directorio in directorios_a_buscar:
+        try:
+            archivos = [f for f in os.listdir(directorio) if f.endswith('.xlsx') and not f.startswith('~$')]
+            if archivos:
+                archivo = os.path.join(directorio, archivos[0])
+                print(f"✅ Archivo Excel encontrado: {archivo}")
+                break
+        except Exception as e:
+            print(f"⚠️ Error buscando en {directorio}: {e}")
+            continue
     
     if not archivo:
-        raise FileNotFoundError("No se encontró el archivo Excel")
+        # Intentar con el nombre específico del archivo
+        nombre_archivo = "Área y energía para JCAS Chihuahua vs1.2.xlsx"
+        rutas_posibles = [
+            nombre_archivo,
+            os.path.join(base_dir, nombre_archivo),
+            os.path.join('.', nombre_archivo)
+        ]
+        
+        for ruta in rutas_posibles:
+            if os.path.exists(ruta):
+                archivo = ruta
+                print(f"✅ Archivo Excel encontrado en ruta específica: {archivo}")
+                break
+    
+    if not archivo:
+        error_msg = f"❌ No se encontró el archivo Excel en:\n"
+        error_msg += f"  - Directorio actual: {os.getcwd()}\n"
+        error_msg += f"  - Directorio base: {base_dir}\n"
+        error_msg += f"  - Archivos disponibles: {os.listdir('.')}\n"
+        raise FileNotFoundError(error_msg)
     
     datos = {}
     
@@ -98,10 +133,25 @@ def cargar_datos_excel():
     
     return datos
 
-# Cargar datos
-print("Cargando datos del archivo Excel...")
-datos = cargar_datos_excel()
-print("Datos cargados exitosamente")
+# Cargar datos con manejo de errores
+print("🔄 Cargando datos del archivo Excel...")
+try:
+    datos = cargar_datos_excel()
+    print("✅ Datos cargados exitosamente")
+except Exception as e:
+    print(f"❌ ERROR al cargar datos: {e}")
+    import traceback
+    traceback.print_exc()
+    # Crear datos vacíos para que la app no crashee
+    datos = {
+        'costo_energia': pd.DataFrame(),
+        'energia_kwh': pd.DataFrame(),
+        'volumen_h2o': pd.DataFrame(),
+        'resumen': pd.DataFrame(),
+        'produccion': pd.DataFrame(),
+        'modelo_financiero': pd.DataFrame()
+    }
+    print("⚠️ Usando datos vacíos temporales")
 
 # Extraer datos específicos
 jmas_list = ['Juarez', 'Chihuahua', 'Cuauhtemoc', 'Parral']
