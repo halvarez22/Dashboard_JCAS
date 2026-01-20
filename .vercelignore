@@ -1,0 +1,30 @@
+# Excluir archivos grandes que NO son necesarios para el funcionamiento del dashboard
+
+# PDFs - Solo documentación, no se usan en el código
+*.pdf
+
+# Archivos comprimidos
+*.rar
+
+# Carpeta de documentos legales - No se usa en el dashboard
+Marco Juridico Chihuahua/
+
+# Archivos de documentación - No se usan en el dashboard
+Fundamentacion_Legal_*.md
+Fundamentacion_Legal_*.txt
+Fundamentacion_Legal_*.html
+DEPLOYMENT.md
+CHECKLIST_DESPLIEGUE.md
+RESUMEN_PROYECTO_JCAS.md
+
+# Archivos temporales
+dashboard_jcas_backup.py
+dashboard_jcas_temp.py
+
+# IMPORTANTE: Mantener estos archivos esenciales
+# - dashboard_jcas.py (código)
+# - Área y energía para JCAS Chihuahua vs1.2.xlsx (datos)
+# - assets/ (logo)
+# - requirements.txt (dependencias)
+# - vercel.json (configuración)
+# - .gitignore
